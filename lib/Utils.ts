@@ -13,10 +13,12 @@ declare var module: any;
 /**
  * Import subclasses
  */
+import UtilsAnimation from "./UtilsAnimation";
 import UtilsBrowser from "./UtilsBrowser";
 import UtilsCookie from "./UtilsCookie";
 import UtilsDocument from "./UtilsDocument";
 import UtilsDOM from "./UtilsDOM";
+import UtilsMouse from "./UtilsMouse";
 import UtilsScreen from "./UtilsScreen";
 import UtilsSystem from "./UtilsSystem";
 import UtilsUser from "./UtilsUser";
@@ -25,10 +27,12 @@ import UtilsWindow from "./UtilsWindow";
  * Global Utils class
  */
 export default class Utils {
+    public static Animation = UtilsAnimation;
     public static Browser = UtilsBrowser;
     public static Cookie = UtilsCookie;
     public static DOM = UtilsDOM;
     public static Document = UtilsDocument;
+    public static Mouse = UtilsMouse;
     public static Screen = UtilsScreen;
     public static System = UtilsSystem;
     public static User = UtilsUser;

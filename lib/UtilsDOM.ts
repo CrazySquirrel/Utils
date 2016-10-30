@@ -245,4 +245,21 @@ export default class DOM {
             return els[index];
         }
     }
+
+    /**
+     * Get line height
+     * @return {number}
+     */
+    public static getLineHeight(): number {
+        let styles = getComputedStyle(document.body);
+        let lineHeight = styles.lineHeight;
+        let lineHeightDig = parseInt(lineHeight, 10);
+        let fontSize = styles.fontSize;
+        let fontSizeDig = parseInt(fontSize, 10);
+        if (isFinite(lineHeightDig)) {
+            return lineHeightDig;
+        } else {
+            return fontSizeDig;
+        }
+    }
 }
