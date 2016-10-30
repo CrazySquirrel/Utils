@@ -8,7 +8,7 @@ import IWindow from "../interfaces/IWindow";
  * Declare window interface
  */
 declare var window: IWindow;
-declare var Error: IError;
+declare var module: any;
 
 /**
  * Import subclasses
@@ -21,20 +21,18 @@ import UtilsScreen from "./UtilsScreen";
 import UtilsSystem from "./UtilsSystem";
 import UtilsUser from "./UtilsUser";
 import UtilsWindow from "./UtilsWindow";
-
-import Logger from "../vendors/Logger";
 /**
  * Global Utils class
  */
-class Utils {
-    public static Browser;
-    public static Cookie;
-    public static DOM;
-    public static Document;
-    public static Screen;
-    public static System;
-    public static User;
-    public static Window;
+export default class Utils {
+    public static Browser = UtilsBrowser;
+    public static Cookie = UtilsCookie;
+    public static DOM = UtilsDOM;
+    public static Document = UtilsDocument;
+    public static Screen = UtilsScreen;
+    public static System = UtilsSystem;
+    public static User = UtilsUser;
+    public static Window = UtilsWindow;
 
     /**
      * @deprecated Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.
@@ -47,8 +45,12 @@ class Utils {
         top: number,
         width: number
     } {
-        Logger.log(401, "Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.");
-
+        if (
+            typeof console === "object" &&
+            typeof console.log === "function"
+        ) {
+            console.log(401, "Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.");
+        }
         return Utils.DOM.getBoundingClientRect(domNode, domDocument, showForce);
     };
 
@@ -56,8 +58,13 @@ class Utils {
      * @deprecated Utils.findElementPosition method was deprecated and soon will be removed. Please use Utils.DOM.findElementPosition method.
      */
     public static findElementPosition(domNode: any, showForce: boolean = false) {
-        Logger.log(401, "Utils.findElementPosition method was deprecated and soon will be removed. Please use Utils.DOM.findElementPosition method.");
-
+        if (
+            typeof console === "object" &&
+            typeof console.log === "function"
+        ) {
+            console.log(401, "Utils.findElementPosition method was deprecated and soon will be removed. Please use" +
+                " Utils.DOM.findElementPosition method.");
+        }
         return Utils.DOM.findElementPosition(domNode, showForce);
     }
 
@@ -72,8 +79,12 @@ class Utils {
             for (let method of methods) {
                 if (typeof realObject[method] === "undefined") {
                     realObject[method] = (...args) => {
-                        Logger.log(401, "That method was deprecated and soon will be removed. Please use " + staticClass.name + "." + method + " method.");
-
+                        if (
+                            typeof console === "object" &&
+                            typeof console.log === "function"
+                        ) {
+                            console.log(401, "That method was deprecated and soon will be removed. Please use " + staticClass.name + "." + method + " method.");
+                        }
                         return staticClass[method](...args);
                     };
                 }
@@ -163,15 +174,5 @@ class Utils {
         return Math.random().toString(36).substring(2);
     }
 }
-Utils.Browser = UtilsBrowser;
-Utils.Cookie = UtilsCookie;
-Utils.DOM = UtilsDOM;
-Utils.Document = UtilsDocument;
-Utils.Screen = UtilsScreen;
-Utils.System = UtilsSystem;
-Utils.User = UtilsUser;
-Utils.Window = UtilsWindow;
 
-window.Utils = Utils;
-
-export default Utils;
+module.exports = Utils;
