@@ -50,10 +50,13 @@ export default class Utils {
         width: number
     } {
         if (
-            typeof console === "object" &&
-            typeof console.log === "function"
+            typeof console === "object"
         ) {
-            console.log(401, "Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.");
+            if (typeof console.warn === "function") {
+                console.warn("Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.");
+            } else if (typeof console.log === "function") {
+                console.log("Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.");
+            }
         }
         return Utils.DOM.getBoundingClientRect(domNode, domDocument, showForce);
     };
@@ -63,11 +66,15 @@ export default class Utils {
      */
     public static findElementPosition(domNode: any, showForce: boolean = false) {
         if (
-            typeof console === "object" &&
-            typeof console.log === "function"
+            typeof console === "object"
         ) {
-            console.log(401, "Utils.findElementPosition method was deprecated and soon will be removed. Please use" +
-                " Utils.DOM.findElementPosition method.");
+            if (typeof console.warn === "function") {
+                console.warn("Utils.findElementPosition method was deprecated and soon will be removed. Please use" +
+                    " Utils.DOM.findElementPosition method.");
+            } else if (typeof console.log === "function") {
+                console.log("Utils.findElementPosition method was deprecated and soon will be removed. Please use" +
+                    " Utils.DOM.findElementPosition method.");
+            }
         }
         return Utils.DOM.findElementPosition(domNode, showForce);
     }
@@ -84,10 +91,13 @@ export default class Utils {
                 if (typeof realObject[method] === "undefined") {
                     realObject[method] = (...args) => {
                         if (
-                            typeof console === "object" &&
-                            typeof console.log === "function"
+                            typeof console === "object"
                         ) {
-                            console.log(401, "That method was deprecated and soon will be removed. Please use " + staticClass.name + "." + method + " method.");
+                            if (typeof console.warn === "function") {
+                                console.warn("That method was deprecated and soon will be removed. Please use " + staticClass.name + "." + method + " method.");
+                            } else if (typeof console.log === "function") {
+                                console.log("That method was deprecated and soon will be removed. Please use " + staticClass.name + "." + method + " method.");
+                            }
                         }
                         return staticClass[method](...args);
                     };
