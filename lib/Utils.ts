@@ -82,8 +82,9 @@ export default class Utils {
     /**
      * Transfer static methods into the object
      * @param realObject
+     * @param className
      */
-    public static implementationStaticMethods(realObject: Object): void {
+    public static implementationStaticMethods(realObject: Object, className?: string): void {
         let staticClass = realObject.constructor;
         let methods = Object.keys(staticClass);
         if (methods.length > 0) {
@@ -94,9 +95,9 @@ export default class Utils {
                             typeof console === "object"
                         ) {
                             if (typeof console.warn === "function") {
-                                console.warn("That method was deprecated and soon will be removed. Please use " + staticClass.name + "." + method + " method.");
+                                console.warn("That method was deprecated and soon will be removed. Please use " + (className || staticClass.name) + "." + method + " method.");
                             } else if (typeof console.log === "function") {
-                                console.log("That method was deprecated and soon will be removed. Please use " + staticClass.name + "." + method + " method.");
+                                console.log("That method was deprecated and soon will be removed. Please use " + (className || staticClass.name) + "." + method + " method.");
                             }
                         }
                         return staticClass[method](...args);
