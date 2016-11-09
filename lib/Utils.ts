@@ -86,22 +86,24 @@ export default class Utils {
      */
     public static implementationStaticMethods(realObject: Object, className?: string): void {
         let staticClass = realObject.constructor;
-        let methods = Object.keys(staticClass);
-        if (methods.length > 0) {
-            for (let method of methods) {
-                if (typeof realObject[method] === "undefined") {
-                    realObject[method] = (...args) => {
-                        if (
-                            typeof console === "object"
-                        ) {
-                            if (typeof console.warn === "function") {
-                                console.warn("That method was deprecated and soon will be removed. Please use " + (className || staticClass.name) + "." + method + " method.");
-                            } else if (typeof console.log === "function") {
-                                console.log("That method was deprecated and soon will be removed. Please use " + (className || staticClass.name) + "." + method + " method.");
+        if(typeof staticClass !== "undefined") {
+            let methods = Object.keys(staticClass);
+            if (methods && methods.length > 0) {
+                for (let method of methods) {
+                    if (typeof realObject[method] === "undefined") {
+                        realObject[method] = (...args) => {
+                            if (
+                                typeof console === "object"
+                            ) {
+                                if (typeof console.warn === "function") {
+                                    console.warn("That method was deprecated and soon will be removed. Please use " + (className || (staticClass && staticClass.name) || "Unknown") + "." + method + " method.");
+                                } else if (typeof console.log === "function") {
+                                    console.log("That method was deprecated and soon will be removed. Please use " + (className || (staticClass && staticClass.name) || "Unknown") + "." + method + " method.");
+                                }
                             }
-                        }
-                        return staticClass[method](...args);
-                    };
+                            return staticClass[method](...args);
+                        };
+                    }
                 }
             }
         }
