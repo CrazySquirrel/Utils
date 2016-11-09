@@ -7,8 +7,8 @@ import IWindow from "../interfaces/IWindow";
 /**
  * Declare window interface
  */
-declare var window: IWindow;
-declare var module: any;
+declare var window:IWindow;
+declare var module:any;
 
 /**
  * Import subclasses
@@ -41,13 +41,13 @@ export default class Utils {
     /**
      * @deprecated Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.
      */
-    public static getBoundingClientRect(domNode: any, domDocument: Document = document, showForce: boolean = false): {
-        bottom: number,
-        height: number,
-        left: number,
-        right: number,
-        top: number,
-        width: number
+    public static getBoundingClientRect(domNode:any, domDocument:Document = document, showForce:boolean = false):{
+        bottom:number,
+        height:number,
+        left:number,
+        right:number,
+        top:number,
+        width:number
     } {
         if (
             typeof console === "object"
@@ -64,7 +64,7 @@ export default class Utils {
     /**
      * @deprecated Utils.findElementPosition method was deprecated and soon will be removed. Please use Utils.DOM.findElementPosition method.
      */
-    public static findElementPosition(domNode: any, showForce: boolean = false) {
+    public static findElementPosition(domNode:any, showForce:boolean = false) {
         if (
             typeof console === "object"
         ) {
@@ -84,15 +84,16 @@ export default class Utils {
      * @param realObject
      * @param className
      */
-    public static implementationStaticMethods(realObject: Object, className?: string): void {
+    public static implementationStaticMethods(realObject:Object, className?:string):void {
         let staticClass = realObject.constructor;
-        if(typeof staticClass !== "undefined") {
+        if (typeof staticClass !== "undefined") {
             let methods = Object.keys(staticClass);
             if (methods && methods.length > 0) {
                 for (let method of methods) {
                     if (typeof realObject[method] === "undefined") {
                         realObject[method] = (...args) => {
                             if (
+                                typeof staticClass !== "undefined" &&
                                 typeof console === "object"
                             ) {
                                 if (typeof console.warn === "function") {
@@ -113,8 +114,8 @@ export default class Utils {
      * Get call stack trace
      * @return Array<Object>
      */
-    public static stack(): Array<Object> {
-        let e: IError = new Error();
+    public static stack():Array<Object> {
+        let e:IError = new Error();
         return (
                 e &&
                 e.stack &&
@@ -187,7 +188,7 @@ export default class Utils {
      * Get random ID
      * @return {string}
      */
-    public static getUID(): string {
+    public static getUID():string {
         return Math.random().toString(36).substring(2);
     }
 }
