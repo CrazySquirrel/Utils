@@ -161,8 +161,7 @@ module.exports = {
                     }),
                     "babel-loader?presets[]=babel-preset-es2015-loose",
                     "ts-loader"
-                ],
-                exclude: /node_modules/
+                ]
             },
             {
                 test: /\.html/i,
