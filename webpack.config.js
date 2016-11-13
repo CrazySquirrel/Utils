@@ -115,7 +115,7 @@ arrPlugins.push(
 module.exports = {
     entry: objBuildList,
     output: {
-        filename: "[name].js",
+        filename: NODE_ENV == "production" ? "[name].min.js" : "[name].js",
         library: "Utils",
         libraryTarget: "umd",
         umdNamedDefine: true
