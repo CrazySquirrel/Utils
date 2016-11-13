@@ -9,6 +9,7 @@ import IWindow from "../interfaces/IWindow";
  */
 declare var window: IWindow;
 declare var module: any;
+declare var Error: IError;
 
 /**
  * Import subclasses
