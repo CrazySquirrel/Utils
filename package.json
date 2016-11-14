@@ -1,6 +1,6 @@
 {
   "name": "Utils",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "./lib/Utils.js",
   "description": "Utils for working with DOM, Window, Screen and etc.",
   "keywords": [
