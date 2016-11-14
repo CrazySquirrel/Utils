@@ -122,11 +122,10 @@ export default class Utils {
                 e.stack &&
                 e.stack.split("\n").slice(5).map(
                     (s) => {
-                        let match;
                         if (!s) {
                             return {};
                         }
-                        match = (/^(.*)@(.*)\.js:([0-9]+):([0-9]+)$/ig).exec(s);
+                        let match: any = (/^(.*)@(.*)\.js:([0-9]+):([0-9]+)$/ig).exec(s);
                         if (match) {
                             if (match[1]) {
                                 match[1] = (/([^\/<]+)/ig).exec(match[1]);
