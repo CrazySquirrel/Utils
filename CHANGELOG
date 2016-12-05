@@ -1,4 +1,4 @@
-## [1.0.15] -
+## [1.0.15] - 2016-12-05
 ### Changed
 - Test and coverage was added
 - Utils.findElementPosition and Utils.DOM.findElementPosition methods was changed.
