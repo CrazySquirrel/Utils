@@ -77,14 +77,20 @@ export default class Browser {
      * @return {string}
      */
     public static trimVersion(version): string {
-        let chars = [";", " ", ")"];
-        for (let char of chars) {
-            let ix = version.indexOf(char);
-            if (ix !== -1) {
-                version = version.substring(0, ix);
+        if (
+            typeof version === "string"
+        ) {
+            let chars = [";", " ", ")"];
+            for (let char of chars) {
+                let ix = version.indexOf(char);
+                if (ix !== -1) {
+                    version = version.substring(0, ix);
+                }
             }
+            return version;
+        } else {
+            return "";
         }
-        return version;
     }
 
     /**
@@ -193,7 +199,10 @@ export default class Browser {
      * @return {boolean}
      */
     public static isSafari(): boolean {
-        return navigator.userAgent.indexOf("Safari") !== -1;
+        return (
+            navigator.userAgent.indexOf("Safari") !== -1 &&
+            navigator.userAgent.indexOf("Chrome") === -1
+        );
     }
 
     /**

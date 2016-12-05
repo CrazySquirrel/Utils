@@ -39,10 +39,24 @@ export default class Utils {
     public static User = UtilsUser;
     public static Window = UtilsWindow;
 
+    public static warn(messange: string) {
+        if (
+            typeof console === "object"
+        ) {
+            if (typeof console.warn === "function") {
+                //console.warn(messange);
+                return messange;
+            } else if (typeof console.log === "function") {
+                //console.log(messange);
+                return messange;
+            }
+        }
+    }
+
     /**
      * @deprecated Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.
      */
-    public static getBoundingClientRect(domNode: any, domDocument: Document = document, showForce: boolean = false): {
+    public static getBoundingClientRect(domNode: string | Element, domDocument: Document = document, showForce: boolean = false): {
         bottom: number,
         height: number,
         left: number,
@@ -50,34 +64,16 @@ export default class Utils {
         top: number,
         width: number
     } {
-        if (
-            typeof console === "object"
-        ) {
-            if (typeof console.warn === "function") {
-                console.warn("Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.");
-            } else if (typeof console.log === "function") {
-                console.log("Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.");
-            }
-        }
+        Utils.warn("Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.");
         return Utils.DOM.getBoundingClientRect(domNode, domDocument, showForce);
     };
 
     /**
      * @deprecated Utils.findElementPosition method was deprecated and soon will be removed. Please use Utils.DOM.findElementPosition method.
      */
-    public static findElementPosition(domNode: any, showForce: boolean = false) {
-        if (
-            typeof console === "object"
-        ) {
-            if (typeof console.warn === "function") {
-                console.warn("Utils.findElementPosition method was deprecated and soon will be removed. Please use" +
-                    " Utils.DOM.findElementPosition method.");
-            } else if (typeof console.log === "function") {
-                console.log("Utils.findElementPosition method was deprecated and soon will be removed. Please use" +
-                    " Utils.DOM.findElementPosition method.");
-            }
-        }
-        return Utils.DOM.findElementPosition(domNode, showForce);
+    public static findElementPosition(domNode: string | Element, domDocument: Document = document, showForce: boolean = false) {
+        Utils.warn("Utils.findElementPosition method was deprecated and soon will be removed. Please use Utils.DOM.findElementPosition method.");
+        return Utils.DOM.findElementPosition(domNode, domDocument, showForce);
     }
 
     /**
@@ -86,25 +82,25 @@ export default class Utils {
      * @param className
      */
     public static implementationStaticMethods(realObject: Object, className?: string): void {
-        let staticClass = realObject.constructor;
-        if (typeof staticClass !== "undefined") {
-            let methods = Object.keys(staticClass);
-            if (methods && methods.length > 0) {
-                for (let method of methods) {
-                    if (typeof realObject[method] === "undefined") {
-                        realObject[method] = (...args) => {
-                            if (
-                                typeof staticClass !== "undefined" &&
-                                typeof console === "object"
-                            ) {
-                                if (typeof console.warn === "function") {
-                                    console.warn("That method was deprecated and soon will be removed. Please use " + (className || (staticClass && staticClass.name) || "Unknown") + "." + method + " method.");
-                                } else if (typeof console.log === "function") {
-                                    console.log("That method was deprecated and soon will be removed. Please use " + (className || (staticClass && staticClass.name) || "Unknown") + "." + method + " method.");
+        if (
+            !!realObject &&
+            typeof realObject === "object"
+        ) {
+            let staticClass = realObject.constructor;
+            if (typeof staticClass === "function") {
+                let methods = Object.keys(staticClass);
+                if (methods && methods.length > 0) {
+                    for (let method of methods) {
+                        if (typeof realObject[method] === "undefined") {
+                            realObject[method] = (...args) => {
+                                if (
+                                    typeof staticClass !== "undefined"
+                                ) {
+                                    Utils.warn("That method was deprecated and soon will be removed. Please use " + (className || (staticClass && staticClass.name) || "Unknown") + "." + method + " method.");
                                 }
-                            }
-                            return staticClass[method](...args);
-                        };
+                                return staticClass[method](...args);
+                            };
+                        }
                     }
                 }
             }

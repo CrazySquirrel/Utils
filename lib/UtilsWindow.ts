@@ -12,20 +12,45 @@ declare var window: IWindow;
  * Class for working with window
  */
 export default class Window {
+
+    /**
+     * Check if it is window
+     * @param objWindow
+     * @return {boolean}
+     */
+    public static isWindow(objWindow): boolean {
+        return (
+            objWindow &&
+            typeof objWindow === "object" &&
+            objWindow.document &&
+            typeof objWindow.document === "object"
+        );
+    }
+
     /**
      * Get window height
-     * @returns {number}
+     * @param objWindow
+     * @return {number}
      */
     public static getHeight(objWindow: IWindow = window): number {
-        return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        if (Window.isWindow(objWindow)) {
+            return objWindow.innerHeight || objWindow.document.documentElement.clientHeight || objWindow.document.body.clientHeight;
+        } else {
+            return NaN;
+        }
     }
 
     /**
      * Get window width
-     * @returns {number}
+     * @param objWindow
+     * @return {number}
      */
     public static getWidth(objWindow: IWindow = window): number {
-        return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        if (Window.isWindow(objWindow)) {
+            return objWindow.innerWidth || objWindow.document.documentElement.clientWidth || objWindow.document.body.clientWidth;
+        } else {
+            return NaN;
+        }
     }
 
     /**
