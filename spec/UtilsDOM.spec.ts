@@ -1,5 +1,7 @@
 "use strict";
 
+declare var beforeEach: any;
+declare var afterEach: any;
 declare var describe: any;
 declare var it: any;
 declare var expect: any;
@@ -31,7 +33,7 @@ describe("UtilsDOM", () => {
         window.document.body.appendChild(iframe);
         iframe.contentWindow.document.body.appendChild(div3);
 
-        paramsValues = [undefined, null, false, true, 123, 0, "div", "test", div1, div2, div3, window, window.document, iframe.contentWindow, iframe.contentWindow.document, window.document.body, () => {
+        paramsValues = [undefined, null, false, true, 123, 0, "div", "test", div1, div2, div3, window, window.document, iframe.contentWindow, iframe.contentWindow.document, () => {
         }];
         dataSet = [];
     });
@@ -48,7 +50,7 @@ describe("UtilsDOM", () => {
                     x1 !== x2
                 ) {
                     let cond = (
-                        (x1 === div2 || x1 === div3) &&
+                        (x1 === div1 || x1 === div2 || x1 === div3) &&
                         typeof x2 === "string"
                     );
                     dataSet.push({
@@ -69,7 +71,7 @@ describe("UtilsDOM", () => {
              * Check if element returned or null
              */
             if (set.result) {
-                expect(result === div2 || result === div3).toEqual(true);
+                expect(result === div1 || result === div2 || result === div3).toEqual(true);
             } else {
                 expect(result).toBeNull();
             }
@@ -91,7 +93,7 @@ describe("UtilsDOM", () => {
              * Check if element returned or null
              */
             if (set.result) {
-                expect(result === div2 || result === div3).toEqual(true);
+                expect(result === div1 || result === div2 || result === div3).toEqual(true);
             } else {
                 expect(result).toBeNull();
             }
@@ -109,7 +111,7 @@ describe("UtilsDOM", () => {
              * Check if element returned or null
              */
             if (set.result) {
-                expect(result === div2 || result === div3).toEqual(true);
+                expect(result === div1 || result === div2 || result === div3).toEqual(true);
             } else {
                 expect(result).toBeNull();
             }
@@ -131,7 +133,7 @@ describe("UtilsDOM", () => {
              * Check if element returned or null
              */
             if (set.result) {
-                expect(result === div2 || result === div3).toEqual(true);
+                expect(result === div1 || result === div2 || result === div3).toEqual(true);
             } else {
                 expect(result).toBeNull();
             }
@@ -314,7 +316,7 @@ describe("UtilsDOM", () => {
                         let cond = (
                             typeof x2 === "string" &&
                             typeof x3 === "function" &&
-                            (x1 === div2 || x1 === div3)
+                            (x1 === div1 || x1 === div2 || x1 === div3)
                         );
                         dataSet.push({
                             params: [x1, x2, x3],
@@ -350,7 +352,7 @@ describe("UtilsDOM", () => {
                         let cond = (
                             typeof x2 === "string" &&
                             typeof x3 === "function" &&
-                            (x1 === div2 || x1 === div3)
+                            (x1 === div1 || x1 === div2 || x1 === div3)
                         );
                         dataSet.push({
                             params: [x1, x2, x3],

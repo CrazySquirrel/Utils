@@ -30,7 +30,7 @@ export default class Cookie {
      * @param secure {boolean}
      * @return {boolean}
      */
-    public static setItem(checkSupport: boolean,
+    public static setItem(checkSupport: boolean = true,
                           key: string,
                           value: string,
                           expires: number = 30,
@@ -47,7 +47,10 @@ export default class Cookie {
                     typeof key === "string" &&
                     Cookie.regValidKey.test(key)
                 ) &&
-                typeof value === "string" &&
+                (
+                    typeof value === "string" &&
+                    (value === "" || Cookie.regValidKey.test(value))
+                ) &&
                 (
                     typeof expires === "number" &&
                     expires < 365
@@ -101,7 +104,7 @@ export default class Cookie {
                         /**
                          * If all ok return true
                          */
-                        return Cookie.getItem(checkSupport, key) === value;
+                        return this.getItem(checkSupport, key) === decodeURIComponent(value);
                     } else {
                         /**
                          * If cookie does not supported return false
@@ -134,7 +137,8 @@ export default class Cookie {
      * @param key {string}
      * @returns {string|boolean}
      */
-    public static getItem(checkSupport: boolean, key: string): string|boolean {
+    public static getItem(checkSupport: boolean = true,
+                          key: string): string|boolean {
         try {
             /**
              * Validate input data
@@ -204,7 +208,8 @@ export default class Cookie {
      * @param key {string}
      * @returns {boolean}
      */
-    public static removeItem(checkSupport: boolean, key: string): boolean {
+    public static removeItem(checkSupport: boolean = true,
+                             key: string): boolean {
         try {
             /**
              * Validate input data
@@ -223,7 +228,7 @@ export default class Cookie {
                     /**
                      * Set empty overdue value by key
                      */
-                    Cookie.setItem(checkSupport, key, "", -1);
+                    Cookie.setItem(checkSupport, key, "", -1 * 24 * 60 * 60);
                     /**
                      * If all ok return true
                      */
@@ -253,7 +258,7 @@ export default class Cookie {
      * @param checkSupport {boolean}
      * @returns {string[]}
      */
-    public static getKeys(checkSupport: boolean): Array<string> {
+    public static getKeys(checkSupport: boolean = true): Array<string> {
         try {
             /**
              * Validate input data
@@ -317,7 +322,7 @@ export default class Cookie {
      * @param checkSupport {boolean}
      * @returns {boolean}
      */
-    public static clear(checkSupport: boolean): boolean {
+    public static clear(checkSupport: boolean = true): boolean {
         try {
             /**
              * Validate input data

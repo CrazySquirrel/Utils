@@ -33,31 +33,46 @@ describe("UtilsCookie", () => {
                                     ) {
                                         let params = [x1, x2, x3, x4, x5, x6, x7];
                                         let cond = (
-                                            typeof x1 === "boolean" &&
+                                            (
+                                                typeof x1 === "boolean" ||
+                                                x1 === undefined
+                                            ) &&
                                             (
                                                 typeof x2 === "string" &&
                                                 UtilsCookie.regValidKey.test(x2)
                                             ) &&
-                                            typeof x3 === "string" &&
                                             (
-                                                typeof x4 === "number" &&
-                                                x4 < 365
-                                            ) &&
-                                            typeof x5 === "string" &&
-                                            (
-                                                typeof x6 === "string" &&
-                                                x6.indexOf(location.hostname) !== -1
+                                                typeof x3 === "string" &&
+                                                UtilsCookie.regValidKey.test(x3)
                                             ) &&
                                             (
-                                                typeof x7 === "boolean" &&
-                                                x7 === (location.protocol === "https:")
+                                                (
+                                                    typeof x4 === "number" &&
+                                                    x4 < 365
+                                                ) || x4 === undefined
+                                            ) &&
+                                            (
+                                                typeof x5 === "string" ||
+                                                x5 === undefined
+                                            ) &&
+                                            (
+                                                (
+                                                    typeof x6 === "string" &&
+                                                    x6.indexOf(location.hostname) !== -1
+                                                ) || x6 === undefined
+                                            ) &&
+                                            (
+                                                (
+                                                    typeof x7 === "boolean" &&
+                                                    x7 === (location.protocol === "https:")
+                                                ) || x7 === undefined
                                             )
                                         );
                                         if (cond) {
-                                            let u = URL.parse("http://" + x6 + x5);
+                                            let u = URL.parse("http://" + (!!x6 ? x6 : location.hostname) + (!!x5 ? x5 : "/"));
                                             if (
-                                                u.hostname !== x6 ||
-                                                u.path !== x5
+                                                (u.hostname !== x6 && u.hostname !== location.hostname) ||
+                                                (u.path !== x5 && u.path !== "/")
                                             ) {
                                                 cond = false;
                                             }
@@ -79,9 +94,6 @@ describe("UtilsCookie", () => {
              * Set data
              */
             let setItem1 = UtilsCookie.setItem.apply(UtilsCookie, set.params);
-            let setItem2 = Utils.Cookie.setItem.apply(UtilsCookie, set.params);
-
-            expect(setItem1).toEqual(setItem2);
 
             expect(typeof(setItem1)).toEqual("boolean");
 
@@ -96,9 +108,6 @@ describe("UtilsCookie", () => {
                  * Get data
                  */
                 let getItem1 = UtilsCookie.getItem.apply(UtilsCookie, set.params.slice(0, 2));
-                let getItem2 = Utils.Cookie.getItem.apply(UtilsCookie, set.params.slice(0, 2));
-
-                expect(getItem1).toEqual(getItem2);
 
                 expect(typeof(getItem1)).toEqual("string");
                 expect(getItem1).toEqual(set.params[2]);
@@ -107,9 +116,6 @@ describe("UtilsCookie", () => {
                  * Get keys
                  */
                 let getKeys1 = UtilsCookie.getKeys.apply(UtilsCookie, set.params.slice(0, 1));
-                let getKeys2 = Utils.Cookie.getKeys.apply(UtilsCookie, set.params.slice(0, 1));
-
-                expect(getKeys1).toEqual(getKeys2);
 
                 expect(getKeys1).toBeArray();
 
@@ -119,11 +125,8 @@ describe("UtilsCookie", () => {
                  * Remove item
                  */
                 let removeItem1 = UtilsCookie.removeItem.apply(UtilsCookie, set.params.slice(0, 2));
-                let removeItem2 = Utils.Cookie.removeItem.apply(UtilsCookie, set.params.slice(0, 2));
 
                 getKeys1 = UtilsCookie.getKeys.apply(UtilsCookie, set.params.slice(0, 1));
-
-                expect(removeItem1).toEqual(removeItem2);
 
                 expect(typeof(removeItem1)).toEqual("boolean");
 
@@ -137,11 +140,8 @@ describe("UtilsCookie", () => {
                 getKeys1 = UtilsCookie.getKeys.apply(UtilsCookie, set.params.slice(0, 1));
 
                 let clear1 = UtilsCookie.clear.apply(UtilsCookie, set.params.slice(0, 1));
-                let clear2 = Utils.Cookie.clear.apply(UtilsCookie, set.params.slice(0, 1));
 
-                getKeys2 = UtilsCookie.getKeys.apply(UtilsCookie, set.params.slice(0, 1));
-
-                expect(clear1).toEqual(clear2);
+                let getKeys2 = UtilsCookie.getKeys.apply(UtilsCookie, set.params.slice(0, 1));
 
                 expect(typeof(clear1)).toEqual("boolean");
 
@@ -175,21 +175,4 @@ describe("UtilsCookie", () => {
     ].join("\r\n"), () => {
         test();
     });
-    /*
-     it("UtilsCookie.getItem", () => {
-     test();
-     });
-
-     it("UtilsCookie.removeItem", () => {
-     test();
-     });
-
-     it("UtilsCookie.getKeys", () => {
-     test();
-     });
-
-     it("UtilsCookie.clear", () => {
-     test();
-     });
-     */
 });

@@ -1,5 +1,7 @@
 "use strict";
 
+declare var beforeEach: any;
+declare var afterEach: any;
 declare var describe: any;
 declare var it: any;
 declare var expect: any;
@@ -118,7 +120,7 @@ describe("Utils", () => {
                         let cond = (x1 === div2 && (typeof x2 === "undefined" || x2 === window.document)) || (x1 === div3 && x2 === iframe.contentWindow.document);
                         dataSet.push({
                             params: [x1, x2, x3],
-                            result: cond
+                            result: cond,
                         });
                     }
                 }
@@ -148,30 +150,25 @@ describe("Utils", () => {
 
     it("Utils.implementationStaticMethods()", () => {
         let _utils = new Utils();
-        let paramsValues = [undefined, null, false, true, 123, "Utils", Utils, _utils];
+        let _paramsValues = [undefined, null, false, true, 123, "Utils", Utils, _utils];
 
-        let dataSet = [
+        let _dataSet = [
             {
                 params: [],
-                result: false
+                result: false,
             }
         ];
 
-        for (let x1 of paramsValues) {
-            let cond1 = (x1 === _utils);
-            dataSet.push({
-                params: [x1],
-                result: cond1
-            });
-            for (let x2 of paramsValues) {
-                dataSet.push({
+        for (let x1 of _paramsValues) {
+            for (let x2 of _paramsValues) {
+                _dataSet.push({
                     params: [x1, x2],
-                    result: cond1
+                    result: (x1 === _utils),
                 });
             }
         }
 
-        for (let set of dataSet) {
+        for (let set of _dataSet) {
             Utils.implementationStaticMethods.apply(Utils, set.params);
             if (set.result) {
                 expect(Object.keys(set.params[0])).toBeArray(Object.keys(Utils));
@@ -180,7 +177,7 @@ describe("Utils", () => {
     });
 
     it("Utils.stack()", () => {
-        let stack = Utils.stack();
+        let stack: any = Utils.stack();
 
         expect(stack).toBeArray();
 

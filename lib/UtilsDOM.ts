@@ -76,7 +76,7 @@ export default class DOM {
      * @param showForce
      * @return {{bottom: number, height: number, left: number, right: number, top: number, width: number}}
      */
-    public static getBoundingClientRect(domNode: string | Element, domDocument: Document = document, showForce: boolean = false): {
+    public static getBoundingClientRect(domNode: any, domDocument: Document = document, showForce: boolean = false): {
         bottom: number,
         height: number,
         left: number,
@@ -180,7 +180,7 @@ export default class DOM {
      * @param showForce
      * @return {{top: number, left: number}}
      */
-    public static findElementPosition(domNode: string | Element, domDocument: Document = document, showForce: boolean = false) {
+    public static findElementPosition(domNode: any, domDocument: Document = document, showForce: boolean = false) {
         let objRet = {
             left: 0,
             top: 0,
@@ -225,8 +225,6 @@ export default class DOM {
             obj &&
             typeof obj === "object" &&
             obj.nodeType === 1 &&
-            obj.parentElement &&
-            obj.parentElement.nodeName !== "HTML" &&
             typeof name === "string" &&
             typeof func === "function"
         ) {
@@ -247,13 +245,11 @@ export default class DOM {
      * @param name
      * @param func
      */
-    public static removeEvent(obj: any, name: string, func: Function): void {
+    public static removeEvent(obj: any, name: string, func: Function): boolean {
         if (
             obj &&
             typeof obj === "object" &&
             obj.nodeType === 1 &&
-            obj.parentElement &&
-            obj.parentElement.nodeName !== "HTML" &&
             typeof name === "string" &&
             typeof func === "function"
         ) {
@@ -279,9 +275,7 @@ export default class DOM {
             element &&
             typeof element === "object" &&
             typeof className === "string" &&
-            element.nodeType === 1 &&
-            element.parentElement &&
-            element.parentElement.nodeName !== "HTML"
+            element.nodeType === 1
         ) {
             className = className.trim();
             return (" " + element.className + " ").indexOf(" " + className + " ") !== -1;
@@ -301,9 +295,7 @@ export default class DOM {
             element &&
             typeof element === "object" &&
             typeof className === "string" &&
-            element.nodeType === 1 &&
-            element.parentElement &&
-            element.parentElement.nodeName !== "HTML"
+            element.nodeType === 1
         ) {
             className = className.trim();
             if (!DOM.hasClassName(element, className)) {
@@ -328,8 +320,6 @@ export default class DOM {
             typeof element === "object" &&
             typeof className === "string" &&
             element.nodeType === 1 &&
-            element.parentElement &&
-            element.parentElement.nodeName !== "HTML" &&
             typeof element.className === "string"
         ) {
             className = className.trim();
@@ -363,9 +353,7 @@ export default class DOM {
             typeof element === "object" &&
             typeof className === "string" &&
             typeof toggle === "boolean" &&
-            element.nodeType === 1 &&
-            element.parentElement &&
-            element.parentElement.nodeName !== "HTML"
+            element.nodeType === 1
         ) {
             className = className.trim();
             if (toggle) {
@@ -392,9 +380,7 @@ export default class DOM {
             typeof element === "object" &&
             typeof oldClassName === "string" &&
             typeof newClassName === "string" &&
-            element.nodeType === 1 &&
-            element.parentElement &&
-            element.parentElement.nodeName !== "HTML"
+            element.nodeType === 1
         ) {
             oldClassName = oldClassName.trim();
             newClassName = newClassName.trim();
