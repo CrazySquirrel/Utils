@@ -224,7 +224,6 @@ export default class DOM {
         if (
             obj &&
             typeof obj === "object" &&
-            obj.nodeType === 1 &&
             typeof name === "string" &&
             typeof func === "function"
         ) {
@@ -249,7 +248,6 @@ export default class DOM {
         if (
             obj &&
             typeof obj === "object" &&
-            obj.nodeType === 1 &&
             typeof name === "string" &&
             typeof func === "function"
         ) {
