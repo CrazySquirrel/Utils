@@ -61,7 +61,10 @@ export default class DOM {
         if (
             !domNode ||
             domNode.nodeType !== 1 || !domNode.parentNode ||
-            domNode.parentNode.nodeName === "HTML" || !domDocument.contains(domNode)
+            domNode.parentNode.nodeName === "HTML" ||
+            (
+                domDocument.contains && !domDocument.contains(domNode)
+            )
         ) {
             return false;
         }
