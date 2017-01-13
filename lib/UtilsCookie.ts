@@ -1,5 +1,7 @@
 "use strict";
 
+declare let require: any;
+
 const URL = require("url");
 /**
  * Class for working with cookie
