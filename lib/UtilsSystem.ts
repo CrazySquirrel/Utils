@@ -145,25 +145,36 @@ export default class System {
      */
     public static getVersion(): string {
         let os = System.getName();
-        let osVersion = "";
+        let osVersion: any = "";
 
         if (/Windows/.test(os)) {
-            osVersion = /Windows (.*)/.exec(os)[1];
-            os = "Windows";
+            osVersion = /Windows (.*)/.exec(os);
+            if (osVersion) {
+                osVersion = osVersion[1];
+                os = "Windows";
+            }
         }
 
         switch (os) {
             case "Mac OS X":
-                osVersion = /Mac OS X (10[._\d]+)/.exec(navigator.userAgent)[1];
+                osVersion = /Mac OS X (10[._\d]+)/.exec(navigator.userAgent);
+                if (osVersion) {
+                    osVersion = osVersion[1];
+                }
                 break;
 
             case "Android":
-                osVersion = /Android ([._\d]+)/.exec(navigator.userAgent)[1];
+                osVersion = /Android ([._\d]+)/.exec(navigator.userAgent);
+                if (osVersion) {
+                    osVersion = osVersion[1];
+                }
                 break;
 
             case "iOS":
                 let reg = /OS (\d+)_(\d+)_?(\d+)?/.exec(navigator.appVersion);
-                osVersion = reg[1] + "." + reg[2] + "." + (reg[3] || 0);
+                if (reg) {
+                    osVersion = reg[1] + "." + reg[2] + "." + (reg[3] || 0);
+                }
                 break;
             default:
         }
