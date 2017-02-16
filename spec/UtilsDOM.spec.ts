@@ -314,9 +314,10 @@ describe("UtilsDOM", () => {
                         [x1, x2].indexOf(x3) === -1
                     ) {
                         let cond = (
+                            x1 &&
+                            typeof x1 === "object" &&
                             typeof x2 === "string" &&
-                            typeof x3 === "function" &&
-                            (x1 === div1 || x1 === div2 || x1 === div3)
+                            typeof x3 === "function"
                         );
                         dataSet.push({
                             params: [x1, x2, x3],
@@ -350,9 +351,10 @@ describe("UtilsDOM", () => {
                         [x1, x2].indexOf(x3) === -1
                     ) {
                         let cond = (
+                            x1 &&
+                            typeof x1 === "object" &&
                             typeof x2 === "string" &&
-                            typeof x3 === "function" &&
-                            (x1 === div1 || x1 === div2 || x1 === div3)
+                            typeof x3 === "function"
                         );
                         dataSet.push({
                             params: [x1, x2, x3],

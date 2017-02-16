@@ -64,6 +64,9 @@ export default class DOM {
             domNode.parentNode.nodeName === "HTML" ||
             (
                 domDocument.contains && !domDocument.contains(domNode)
+            ) ||
+            (
+                domDocument.body && domDocument.body.contains && !domDocument.body.contains(domNode)
             )
         ) {
             return false;
