@@ -9,7 +9,7 @@ after_success:
   - codeclimate-test-reporter < doc/coverage/report-lcov/lcov.info
 addons:
   code_climate:
-    repo_token: b136cfee61ce2d3fec969d230ced59f048664d302da7a626d5dbf05a35828cfa
+    repo_token: 944f09e8e420c38def1b123a2e988798c64f225b4ee16350a4b0612e3fdc3812
 deploy:
   provider: npm
   email: 'info@crazysquirrel.ru'
