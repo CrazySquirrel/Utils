@@ -164,10 +164,6 @@ describe("UtilsBrowser", () => {
     expect(typeof(isLinux2)).toEqual("boolean");
 
     expect(isLinux1).toEqual(isLinux2);
-
-    expect(isWebKit1).not.toEqual(isGecko1);
-
-    expect(isAndroid1).toEqual(isLinux1);
   };
 
   let testOtherBrowsers = () => {
