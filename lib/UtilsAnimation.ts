@@ -6,5 +6,5 @@
 import UtilsAnimationEasing from "./UtilsAnimationEasing";
 
 export default class Animation {
-    public static Easing = UtilsAnimationEasing;
+  public static Easing = UtilsAnimationEasing;
 }

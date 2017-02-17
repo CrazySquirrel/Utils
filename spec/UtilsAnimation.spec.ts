@@ -1,13 +1,16 @@
 "use strict";
 
-declare var describe: any;
-declare var it: any;
-declare var expect: any;
+declare let beforeEach: any;
+declare let afterEach: any;
+declare let describe: any;
+declare let it: any;
+declare let expect: any;
+declare let require: any;
 
 import UtilsAnimation from "../lib/UtilsAnimation.ts";
 
 describe("Utils.Animation", () => {
-    it("Utils.Animation", () => {
-        expect(typeof(UtilsAnimation)).toEqual("function");
-    });
+  it("Utils.Animation", () => {
+    expect(typeof(UtilsAnimation)).toEqual("function");
+  });
 });

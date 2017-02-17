@@ -54,7 +54,7 @@ let arrPlugins = [
 /**
  * Add BrowserSync for development mode
  */
-if (NODE_ENV == "development" || NODE_ENV == "production") {
+if (NODE_ENV === "development" || NODE_ENV === "production") {
     arrPlugins.push(
         new BrowserSyncPlugin({
             host: "localhost",
@@ -72,7 +72,7 @@ if (NODE_ENV == "development" || NODE_ENV == "production") {
 /**
  * Add uglifyer for production mode
  */
-if (NODE_ENV == "production" || NODE_ENV == "testing") {
+if (NODE_ENV === "production" || NODE_ENV === "testing") {
     arrPlugins.push(
         new webpack.optimize.UglifyJsPlugin({
             minimize: true,
@@ -83,15 +83,6 @@ if (NODE_ENV == "production" || NODE_ENV == "testing") {
             compressor: {
                 warnings: false
             }
-        })
-    );
-    arrPlugins.push(
-        new CompressionPlugin({
-            asset: "[path].gz[query]",
-            algorithm: "gzip",
-            test: /lib\/([0-9a-zA-Z-_\/]{1,})\.js$/,
-            threshold: 10240,
-            minRatio: 0.8
         })
     );
 }
@@ -116,7 +107,7 @@ arrPlugins.push(
 module.exports = {
     entry: objBuildList,
     output: {
-        filename: NODE_ENV == "production" ? "[name].min.js" : "[name].js",
+        filename: NODE_ENV === "production" ? "[name].js" : "[name].js",
         library: "Utils",
         libraryTarget: "umd",
         umdNamedDefine: true
@@ -124,7 +115,7 @@ module.exports = {
     externals: {
         "Utils": "Utils"
     },
-    devtool: (NODE_ENV == "development" ? "inline-source-map" : (NODE_ENV == "testing" ? "inline-source-map" : "")),
+    devtool: (NODE_ENV === "development" ? "inline-source-map" : (NODE_ENV === "testing" ? "inline-source-map" : "")),
     plugins: arrPlugins,
     resolve: {
         extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]

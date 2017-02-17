@@ -1,6 +1,7 @@
 .idea
 doc
 dist
+lib/*.js
 node_modules
 *.log
 *.xml
