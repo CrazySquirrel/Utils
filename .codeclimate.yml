@@ -20,5 +20,6 @@ exclude_paths:
   - vendors
   - spec
   - src
+  - dist
   - "**.js"
   - "**.json"
