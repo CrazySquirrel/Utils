@@ -1,6 +1,6 @@
 "use strict";
 
-import Utils from "./Utils";
+import UtilsMain from "./UtilsMain";
 
 /**
  * Class for working with DOM
@@ -104,7 +104,7 @@ export default class DOM {
 
     domNode = DOM.getDOMNode(domNode, domDocument);
     if (!domNode) {
-      Utils.warn("Utils.DOM.getBoundingClientRect: DOM element doesn't exist in that DOM Document");
+      UtilsMain.warn("Utils.DOM.getBoundingClientRect: DOM element doesn't exist in that DOM Document");
       return objRet;
     }
 
@@ -194,7 +194,7 @@ export default class DOM {
 
     domNode = DOM.getDOMNode(domNode, domDocument);
     if (!domNode) {
-      Utils.warn("Utils.DOM.findElementPosition: DOM element doesn't exist in that DOM Document");
+      UtilsMain.warn("Utils.DOM.findElementPosition: DOM element doesn't exist in that DOM Document");
       return objRet;
     }
 

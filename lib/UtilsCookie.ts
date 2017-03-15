@@ -1,8 +1,5 @@
 "use strict";
 
-declare let require: any;
-
-const URL = require("url");
 /**
  * Class for working with cookie
  */
@@ -70,10 +67,11 @@ export default class Cookie {
         /**
          * Validate input data
          */
-        let u = URL.parse("http://" + domain + path);
+        let a: any = document.createElement("a");
+        a.href = "http://" + domain + path;
         if (
-            u.hostname === domain ||
-            u.path === path
+            a.hostname === domain ||
+            a.path === path
         ) {
           /**
            * If that store is supported
