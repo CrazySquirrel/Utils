@@ -50,8 +50,8 @@ module.exports = function (config) {
         autoWatch: false,
         singleRun: true,
         concurrency: Infinity,
-        browserDisconnectTimeout: 60000,
-        browserNoActivityTimeout: 60000,
+        browserDisconnectTimeout: 120000,
+        browserNoActivityTimeout: 120000,
         webpackServer: {
             noInfo: true,
             stats: {
