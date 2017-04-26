@@ -161,6 +161,15 @@ module.exports = {
       {
         test: /\.html/i,
         loader: extractHTML.extract(["html"])
+      },
+      {
+        test: /\.json$/,
+        loaders: [
+          StringReplacePlugin.replace({
+            replacements: replacements
+          }),
+          "json-loader"
+        ]
       }
     ]
   }
