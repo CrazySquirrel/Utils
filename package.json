@@ -1,7 +1,6 @@
 {
   "name": "Utils",
   "version": "1.0.30",
-  "main": "./lib/Utils.js",
   "description": "Utils for working with DOM, Window, Screen and etc.",
   "keywords": [
     "TypeScript",
@@ -15,8 +14,22 @@
     "User utils",
     "Window utils"
   ],
-  "author": "Sergey Yastrebov <info@crazysquirrel.ru>",
+  "homepage": "https://github.com/CrazySquirrel/Utils",
+  "bugs": {
+    "url": "https://github.com/CrazySquirrel/Utils/issues",
+    "email": "info@crazysquirrel.ru"
+  },
   "license": "MIT",
+  "author": "Sergey Yastrebov <info@crazysquirrel.ru>",
+  "main": "./lib/Utils.js",
+  "module": "./lib/Utils.js",
+  "browser": "./lib/Utils.js",
+  "jsnext:main": "./lib/Utils.js",
+  "types": "./lib/Utils.d.ts",
+  "bin": {
+    "Utils": "./lib/Utils.js"
+  },
+  "man": "./README.md",
   "repository": {
     "type": "git",
     "url": "git@github.com:CrazySquirrel/Utils.git"
@@ -44,7 +57,12 @@
       "es6": true
     }
   },
+  "dependencies": {},
   "devDependencies": {
+    "@types/es6-shim": "^0.31.33",
+    "@types/jasmine": "^2.5.47",
+    "@types/jasmine-expect": "^3.6.1",
+    "@types/jasmine-matchers": "^0.2.30",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-istanbul": "^3.0.0",
@@ -86,7 +104,6 @@
     "webpack": "^1.13.3",
     "webpack-notifier": "^1.4.1"
   },
-  "dependencies": {},
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"

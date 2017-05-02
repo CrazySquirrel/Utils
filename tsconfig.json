@@ -2,7 +2,8 @@
   "compilerOptions": {
     "target": "es6",
     "sourceMap": false,
-    "inlineSourceMap": true
+    "inlineSourceMap": true,
+    "declaration": true
   },
   "files": [
     "./lib/Utils.ts"

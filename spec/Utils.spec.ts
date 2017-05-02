@@ -63,7 +63,7 @@ describe("Utils", () => {
             let cond = (x1 === div2 && (typeof x2 === "undefined" || x2 === window.document)) || (x1 === div3 && x2 === iframe.contentWindow.document);
             dataSet.push({
               params: [x1, x2, x3],
-              result: cond
+              result: cond,
             });
           }
         }
@@ -157,7 +157,7 @@ describe("Utils", () => {
       {
         params: [],
         result: false,
-      }
+      },
     ];
 
     for (let x1 of _paramsValues) {
