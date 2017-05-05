@@ -14,17 +14,16 @@ import UtilsCookie from "../lib/UtilsCookie";
 
 describe("UtilsCookie", () => {
 
-  let test = () => {
-    let now = (new Date()).getTime();
-    let paramsValues = [undefined, false, true, 30, "value", "/", "test", location.hostname];
-    let dataSet = [];
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
-        for (let x3 of paramsValues) {
-          for (let x4 of paramsValues) {
-            for (let x5 of paramsValues) {
-              for (let x6 of paramsValues) {
-                for (let x7 of paramsValues) {
+  const test = () => {
+    const paramsValues: any = [undefined, false, true, 30, "value", "/", "test", location.hostname];
+    const dataSet = [];
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
+        for (const x3 of paramsValues) {
+          for (const x4 of paramsValues) {
+            for (const x5 of paramsValues) {
+              for (const x6 of paramsValues) {
+                for (const x7 of paramsValues) {
                   if (
                       [x2, x3, x4, x5, x6, x7].indexOf(x1) === -1 &&
                       [x1, x3, x4, x5, x6, x7].indexOf(x2) === -1 &&
@@ -34,7 +33,7 @@ describe("UtilsCookie", () => {
                       [x1, x2, x3, x4, x5, x7].indexOf(x6) === -1 &&
                       [x1, x2, x3, x4, x5, x6].indexOf(x7) === -1
                   ) {
-                    let params = [x1, x2, x3, x4, x5, x6, x7];
+                    const params = [x1, x2, x3, x4, x5, x6, x7];
                     let cond = (
                         (
                             typeof x1 === "boolean" ||
@@ -72,7 +71,7 @@ describe("UtilsCookie", () => {
                         )
                     );
                     if (cond) {
-                      let u = URL.parse("http://" + (!!x6 ? x6 : location.hostname) + (!!x5 ? x5 : "/"));
+                      const u = URL.parse("http://" + (!!x6 ? x6 : location.hostname) + (!!x5 ? x5 : "/"));
                       if (
                           (u.hostname !== x6 && u.hostname !== location.hostname) ||
                           (u.path !== x5 && u.path !== "/")
@@ -81,8 +80,8 @@ describe("UtilsCookie", () => {
                       }
                     }
                     dataSet.push({
-                      params: params,
-                      result: cond
+                      params,
+                      result: cond,
                     });
                   }
                 }
@@ -92,7 +91,7 @@ describe("UtilsCookie", () => {
         }
       }
     }
-    for (let set of dataSet) {
+    for (const set of dataSet) {
       /**
        * Set data
        */
@@ -110,7 +109,7 @@ describe("UtilsCookie", () => {
         /**
          * Get data
          */
-        let getItem1 = UtilsCookie.getItem.apply(UtilsCookie, set.params.slice(0, 2));
+        const getItem1 = UtilsCookie.getItem.apply(UtilsCookie, set.params.slice(0, 2));
 
         expect(typeof(getItem1)).toEqual("string");
         expect(getItem1).toEqual(set.params[2]);
@@ -127,7 +126,7 @@ describe("UtilsCookie", () => {
         /**
          * Remove item
          */
-        let removeItem1 = UtilsCookie.removeItem.apply(UtilsCookie, set.params.slice(0, 2));
+        const removeItem1 = UtilsCookie.removeItem.apply(UtilsCookie, set.params.slice(0, 2));
 
         getKeys1 = UtilsCookie.getKeys.apply(UtilsCookie, set.params.slice(0, 1));
 
@@ -142,9 +141,9 @@ describe("UtilsCookie", () => {
         setItem1 = UtilsCookie.setItem.apply(UtilsCookie, set.params);
         getKeys1 = UtilsCookie.getKeys.apply(UtilsCookie, set.params.slice(0, 1));
 
-        let clear1 = UtilsCookie.clear.apply(UtilsCookie, set.params.slice(0, 1));
+        const clear1 = UtilsCookie.clear.apply(UtilsCookie, set.params.slice(0, 1));
 
-        let getKeys2 = UtilsCookie.getKeys.apply(UtilsCookie, set.params.slice(0, 1));
+        const getKeys2 = UtilsCookie.getKeys.apply(UtilsCookie, set.params.slice(0, 1));
 
         expect(typeof(clear1)).toEqual("boolean");
 
@@ -159,8 +158,8 @@ describe("UtilsCookie", () => {
   });
 
   it("UtilsCookie.isSupported", () => {
-    let isSupported1 = UtilsCookie.isSupported();
-    let isSupported2 = Utils.Cookie.isSupported();
+    const isSupported1 = UtilsCookie.isSupported();
+    const isSupported2 = Utils.Cookie.isSupported();
 
     expect(isSupported1).toEqual(isSupported2);
 
@@ -174,7 +173,7 @@ describe("UtilsCookie", () => {
     "UtilsCookie.getItem",
     "UtilsCookie.removeItem",
     "UtilsCookie.getKeys",
-    "UtilsCookie.clear"
+    "UtilsCookie.clear",
   ].join("\r\n"), () => {
     test();
   });

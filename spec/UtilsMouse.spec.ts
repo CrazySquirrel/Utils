@@ -15,12 +15,12 @@ describe("UtilsMouse", () => {
   });
 
   it("UtilsMouse.getWheelDelta", () => {
-    let evt = document.createEvent("MouseEvents");
+    const evt = document.createEvent("MouseEvents");
     evt.initMouseEvent("wheel", true, true, window, 10, 10, 10, 80, 20, false, false, false, false, 10, null);
 
-    let paramsValues = [evt, undefined, null, false, true, 123, "test", window, window.document, window.document.body];
-    for (let paramsValue of paramsValues) {
-      let result = UtilsMouse.getWheelDelta(paramsValue);
+    const paramsValues = [evt, undefined, null, false, true, 123, "test", window, window.document, window.document.body];
+    for (const paramsValue of paramsValues) {
+      const result = UtilsMouse.getWheelDelta(paramsValue);
 
       expect(typeof(result)).toEqual("number");
 

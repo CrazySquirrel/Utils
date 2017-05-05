@@ -12,13 +12,13 @@ import UtilsScreen from "../lib/UtilsScreen";
 
 describe("UtilsScreen", () => {
 
-  let test = (methods) => {
-    let results = [];
-    for (let method of methods) {
+  const test = (methods) => {
+    const results = [];
+    for (const method of methods) {
       results.push(method.apply(UtilsScreen, []));
     }
-    let result = results[0];
-    for (let _result of results) {
+    const result = results[0];
+    for (const _result of results) {
       expect(typeof(_result)).toEqual("number");
       expect(_result).toBeCalculable();
       expect(_result).toEqual(result);
@@ -26,13 +26,13 @@ describe("UtilsScreen", () => {
     }
   };
 
-  let test2 = (methods) => {
-    let results = [];
-    for (let method of methods) {
+  const test2 = (methods) => {
+    const results = [];
+    for (const method of methods) {
       results.push(method.apply(UtilsScreen, []));
     }
-    let result = results[0];
-    for (let _result of results) {
+    const result = results[0];
+    for (const _result of results) {
       expect(typeof(_result)).toEqual("object");
       expect(Object.keys(_result)).toBeArray(["width", "height"]);
 
@@ -51,8 +51,8 @@ describe("UtilsScreen", () => {
   });
 
   it("UtilsScreen.getInfo", () => {
-    let info1 = UtilsScreen.getInfo();
-    let info2 = Utils.Screen.getInfo();
+    const info1 = UtilsScreen.getInfo();
+    const info2 = Utils.Screen.getInfo();
 
     expect(info1).toEqual(info2);
 

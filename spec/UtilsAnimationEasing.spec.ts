@@ -18,14 +18,14 @@ describe("UtilsAnimationEasing", () => {
   beforeEach(() => {
     now = (new Date()).getTime();
 
-    let paramsValues = [undefined, null, true, 10, 123, "test", now, now + 1000];
+    const paramsValues = [undefined, null, true, 10, 123, "test", now, now + 1000];
     dataSet = [];
 
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
-        for (let x3 of paramsValues) {
-          for (let x4 of paramsValues) {
-            let cond = (
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
+        for (const x3 of paramsValues) {
+          for (const x4 of paramsValues) {
+            const cond = (
                 typeof x1 === "number" &&
                 typeof x2 === "number" &&
                 typeof x3 === "number" &&
@@ -34,7 +34,7 @@ describe("UtilsAnimationEasing", () => {
             );
             dataSet.push({
               params: [x1, x2, x3, x4],
-              result: cond
+              result: cond,
             });
           }
         }
@@ -42,14 +42,14 @@ describe("UtilsAnimationEasing", () => {
     }
   });
 
-  let test = (methods, _dataSet) => {
-    for (let set of _dataSet) {
-      let results = [];
-      for (let method of methods) {
+  const test = (methods, _dataSet) => {
+    for (const set of _dataSet) {
+      const results = [];
+      for (const method of methods) {
         results.push(method.apply(UtilsAnimationEasing, set.params));
       }
-      let result = results[0];
-      for (let _result of results) {
+      const result = results[0];
+      for (const _result of results) {
         expect(_result).toEqual(result);
       }
 

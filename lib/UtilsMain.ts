@@ -1,5 +1,4 @@
 "use strict";
-
 /**
  * Import interfaces
  */
@@ -8,7 +7,6 @@ import IError from "../interfaces/IError";
  * Declare window interface
  */
 declare var Error: IError;
-
 /**
  * Main Utils class
  */
@@ -36,16 +34,16 @@ export default class Main {
    * @param realObject
    * @param className
    */
-  public static implementationStaticMethods(realObject: Object, className?: string): void {
+  public static implementationStaticMethods(realObject: any, className?: string): void {
     if (
         !!realObject &&
         typeof realObject === "object"
     ) {
-      let staticClass = realObject.constructor;
+      const staticClass = realObject.constructor;
       if (typeof staticClass === "function") {
-        let methods = Object.keys(staticClass);
+        const methods = Object.keys(staticClass);
         if (methods && methods.length > 0) {
-          for (let method of methods) {
+          for (const method of methods) {
             if (typeof realObject[method] === "undefined") {
               realObject[method] = (...args) => {
                 if (
@@ -66,8 +64,8 @@ export default class Main {
    * Get call stack trace
    * @return Array<Object>
    */
-  public static stack(): Array<Object> {
-    let e: IError = new Error();
+  public static stack(): any[] {
+    const e: IError = new Error();
     return (
             e &&
             e.stack &&
@@ -129,7 +127,7 @@ export default class Main {
                     };
                   }
                   return s;
-                }
+                },
             )
         ) ||
         [];

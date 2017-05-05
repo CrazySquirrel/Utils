@@ -47,14 +47,14 @@ export default class DOM {
      * @param name
      * @param func
      */
-    static addEvent(obj: any, name: string, func: Function): boolean;
+    static addEvent(obj: any, name: string, func: any): boolean;
     /**
      * Remove event listener
      * @param obj
      * @param name
      * @param func
      */
-    static removeEvent(obj: any, name: string, func: Function): boolean;
+    static removeEvent(obj: any, name: string, func: any): boolean;
     /**
      * Check if element has class name
      * @param element

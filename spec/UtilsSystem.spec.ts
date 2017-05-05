@@ -16,8 +16,8 @@ describe("UtilsSystem", () => {
   });
 
   it("UtilsSystem.getInfo", () => {
-    let info1 = UtilsSystem.getInfo();
-    let info2 = Utils.System.getInfo();
+    const info1 = UtilsSystem.getInfo();
+    const info2 = Utils.System.getInfo();
 
     expect(info1).toEqual(info2);
 
@@ -31,8 +31,8 @@ describe("UtilsSystem", () => {
   });
 
   it("UtilsSystem.getName", () => {
-    let name1 = UtilsSystem.getName();
-    let name2 = Utils.System.getName();
+    const name1 = UtilsSystem.getName();
+    const name2 = Utils.System.getName();
 
     expect(typeof(name1)).toEqual("string");
     expect(typeof(name2)).toEqual("string");
@@ -41,8 +41,8 @@ describe("UtilsSystem", () => {
   });
 
   it("UtilsSystem.getVersion", () => {
-    let version1 = UtilsSystem.getVersion();
-    let version2 = Utils.System.getVersion();
+    const version1 = UtilsSystem.getVersion();
+    const version2 = Utils.System.getVersion();
 
     expect(typeof(version1)).toEqual("string");
     expect(typeof(version2)).toEqual("string");

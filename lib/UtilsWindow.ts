@@ -7,7 +7,6 @@ import IWindow from "../Interfaces/IWindow";
  * Declare window interface
  */
 declare let window: IWindow;
-
 /**
  * Class for working with window
  */
@@ -59,7 +58,7 @@ export default class Window {
    */
   public static getSizes(objWindow: IWindow = window): {
     height: number,
-    width: number
+    width: number,
   } {
     return ({
       height: Window.getHeight(objWindow),

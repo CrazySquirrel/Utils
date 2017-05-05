@@ -39,7 +39,7 @@ export default class Cookie {
      * @param checkSupport {boolean}
      * @returns {string[]}
      */
-    static getKeys(checkSupport?: boolean): Array<string>;
+    static getKeys(checkSupport?: boolean): string[];
     /**
      * The method cleans the storage and return true if it is empty
      * @param checkSupport {boolean}

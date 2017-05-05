@@ -1,5 +1,13 @@
 "use strict";
 /**
+ * Import interfaces
+ */
+import IWindow from "../Interfaces/IWindow";
+/**
+ * Declare window interface
+ */
+declare let window: IWindow;
+/**
  * Class for working with screen
  */
 export default class Screen {
@@ -11,14 +19,14 @@ export default class Screen {
   public static getInfo(): {
     availableSize: {
       height: number,
-      width: number
+      width: number,
     },
     colorDepth: number,
     pixelRatio: number,
     size: {
       height: number,
-      width: number
-    }
+      width: number,
+    },
   } {
     return {
       availableSize: Screen.getAvailableSizes(),
@@ -33,7 +41,7 @@ export default class Screen {
    * @returns {number}
    */
   public static getHeight(): number {
-    return screen.height;
+    return window.screen.height;
   }
 
   /**
@@ -41,7 +49,7 @@ export default class Screen {
    * @returns {number}
    */
   public static getWidth(): number {
-    return screen.width;
+    return window.screen.width;
   }
 
   /**
@@ -50,7 +58,7 @@ export default class Screen {
    */
   public static getSizes(): {
     height: number,
-    width: number
+    width: number,
   } {
     return ({
       height: Screen.getHeight(),
@@ -63,7 +71,7 @@ export default class Screen {
    * @returns {number}
    */
   public static getAvailableHeight(): number {
-    return screen.availHeight;
+    return window.screen.availHeight;
   }
 
   /**
@@ -71,7 +79,7 @@ export default class Screen {
    * @returns {number}
    */
   public static getAvailableWidth(): number {
-    return screen.availWidth;
+    return window.screen.availWidth;
   }
 
   /**
@@ -80,7 +88,7 @@ export default class Screen {
    */
   public static getAvailableSizes(): {
     height: number,
-    width: number
+    width: number,
   } {
     return ({
       height: Screen.getAvailableHeight(),
@@ -113,6 +121,6 @@ export default class Screen {
    * @return {number}
    */
   public static getColorDepth(): number {
-    return screen.colorDepth;
+    return window.screen.colorDepth;
   }
 }

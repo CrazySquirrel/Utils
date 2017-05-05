@@ -3,18 +3,15 @@
  * Import interfaces
  */
 import IWindow from "../interfaces/IWindow";
-
 /**
  * Declare window interface
  */
 declare var window: IWindow;
 declare var module: any;
-
 /**
  * Import Main Utils class
  */
 import UtilsMain from "./UtilsMain";
-
 /**
  * Import subclasses
  */
@@ -52,11 +49,11 @@ export default class Utils extends UtilsMain {
     left: number,
     right: number,
     top: number,
-    width: number
+    width: number,
   } {
     Utils.warn("Utils.getBoundingClientRect method was deprecated and soon will be removed. Please use Utils.DOM.getBoundingClientRect method.");
     return Utils.DOM.getBoundingClientRect(domNode, domDocument, showForce);
-  };
+  }
 
   /**
    * @deprecated Utils.findElementPosition method was deprecated and soon will be removed. Please use Utils.DOM.findElementPosition method.

@@ -13,12 +13,12 @@ export default class Main {
      * @param realObject
      * @param className
      */
-    static implementationStaticMethods(realObject: Object, className?: string): void;
+    static implementationStaticMethods(realObject: any, className?: string): void;
     /**
      * Get call stack trace
      * @return Array<Object>
      */
-    static stack(): Array<Object>;
+    static stack(): any[];
     /**
      * Get random ID
      * @return {string}

@@ -4,7 +4,9 @@
  */
 import UtilsDOM from "./UtilsDOM";
 import UtilsWindow from "./UtilsWindow";
-
+/**
+ * Class for working with mouse
+ */
 export default class Mouse {
   /**
    * Normalise mouse delta
@@ -65,11 +67,11 @@ export default class Mouse {
       //   * deltaMode 1 is by lines
       //   * deltaMode 2 is by pages
       if (e.deltaMode === 1) {
-        let lineHeight = UtilsDOM.getLineHeight();
+        const lineHeight = UtilsDOM.getLineHeight();
         deltaY = deltaY * lineHeight;
         deltaX = deltaX * lineHeight;
       } else if (e.deltaMode === 2) {
-        let windowhegiht = UtilsWindow.getHeight();
+        const windowhegiht = UtilsWindow.getHeight();
         deltaY = deltaY * windowhegiht;
         deltaX = deltaX * windowhegiht;
       }

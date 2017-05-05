@@ -7,9 +7,10 @@ import IWindow from "../Interfaces/IWindow";
  * Declare window interface
  */
 declare let window: IWindow;
-
+/**
+ * Import additional classes
+ */
 import UtilsWindow from "./UtilsWindow";
-
 /**
  * Class for working with document
  */
@@ -26,7 +27,7 @@ export default class Document {
           objWindow.document.body.offsetHeight,
           objWindow.document.documentElement.offsetHeight,
           objWindow.document.body.clientHeight,
-          objWindow.document.documentElement.clientHeight
+          objWindow.document.documentElement.clientHeight,
       );
     } else {
       return NaN;
@@ -45,7 +46,7 @@ export default class Document {
           objWindow.document.body.offsetWidth,
           objWindow.document.documentElement.offsetWidth,
           objWindow.document.body.clientWidth,
-          objWindow.document.documentElement.clientWidth
+          objWindow.document.documentElement.clientWidth,
       );
     } else {
       return NaN;

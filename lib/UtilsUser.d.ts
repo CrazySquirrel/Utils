@@ -1,3 +1,6 @@
+/**
+ * Class for working with user data
+ */
 export default class User {
     /**
      * Get user info

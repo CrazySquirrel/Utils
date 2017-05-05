@@ -1,7 +1,8 @@
 "use strict";
-
+/**
+ * Import additional classes
+ */
 import UtilsMain from "./UtilsMain";
-
 /**
  * Class for working with DOM
  */
@@ -88,7 +89,7 @@ export default class DOM {
     left: number,
     right: number,
     top: number,
-    width: number
+    width: number,
   } {
     /**
      * Create result size and position object
@@ -142,7 +143,7 @@ export default class DOM {
        * Calculated basic parameters of the element
        * @type {Object}
        */
-      let objCoordinates = {
+      const objCoordinates = {
         height: domElement.offsetHeight,
         width: domElement.offsetWidth,
         x: 0,
@@ -177,7 +178,7 @@ export default class DOM {
      * Return size and position of the element
      */
     return objRet;
-  };
+  }
 
   /**
    * Find element position
@@ -187,7 +188,7 @@ export default class DOM {
    * @return {{top: number, left: number}}
    */
   public static findElementPosition(domNode: any, domDocument: Document = document, showForce: boolean = false) {
-    let objRet = {
+    const objRet = {
       left: 0,
       top: 0,
     };
@@ -226,7 +227,7 @@ export default class DOM {
    * @param name
    * @param func
    */
-  public static addEvent(obj: any, name: string, func: Function): boolean {
+  public static addEvent(obj: any, name: string, func: any): boolean {
     if (
         obj &&
         typeof obj === "object" &&
@@ -250,7 +251,7 @@ export default class DOM {
    * @param name
    * @param func
    */
-  public static removeEvent(obj: any, name: string, func: Function): boolean {
+  public static removeEvent(obj: any, name: string, func: any): boolean {
     if (
         obj &&
         typeof obj === "object" &&
@@ -303,7 +304,7 @@ export default class DOM {
     ) {
       className = className.trim();
       if (!DOM.hasClassName(element, className)) {
-        let cl = element.className;
+        const cl = element.className;
         element.className = cl ? cl + " " + className : className;
       }
       return element;
@@ -327,7 +328,7 @@ export default class DOM {
         typeof element.className === "string"
     ) {
       className = className.trim();
-      let classes = element.className.trim().split(" ");
+      const classes = element.className.trim().split(" ");
       for (let i = classes.length - 1; i >= 0; i--) {
         classes[i] = classes[i].trim();
         if (
@@ -409,7 +410,7 @@ export default class DOM {
         DOM.isDOMDocument(domDocument) &&
         typeof index === "number"
     ) {
-      let els: NodeList = domDocument.getElementsByTagName(tn);
+      const els: NodeList = domDocument.getElementsByTagName(tn);
       return els[index] || null;
     } else {
       return null;
@@ -421,11 +422,11 @@ export default class DOM {
    * @return {number}
    */
   public static getLineHeight(): number {
-    let styles = getComputedStyle(document.body);
-    let lineHeight = styles.lineHeight;
-    let lineHeightDig = parseInt(lineHeight, 10);
-    let fontSize = styles.fontSize;
-    let fontSizeDig = parseInt(fontSize, 10);
+    const styles = getComputedStyle(document.body);
+    const lineHeight = styles.lineHeight;
+    const lineHeightDig = parseInt(lineHeight, 10);
+    const fontSize = styles.fontSize;
+    const fontSizeDig = parseInt(fontSize, 10);
     if (isFinite(lineHeightDig)) {
       return lineHeightDig;
     } else {

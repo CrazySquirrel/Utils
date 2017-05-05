@@ -44,26 +44,26 @@ describe("UtilsDOM", () => {
     window.document.body.removeChild(iframe);
   });
 
-  let testClass = () => {
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
+  const testClass = () => {
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
         if (
             x1 !== x2
         ) {
-          let cond = (
+          const cond = (
               (x1 === div1 || x1 === div2 || x1 === div3) &&
               typeof x2 === "string"
           );
           dataSet.push({
             params: [x1, x2],
-            result: cond
+            result: cond,
           });
         }
 
       }
     }
 
-    for (let set of dataSet) {
+    for (const set of dataSet) {
       /**
        * Add class
        */
@@ -171,12 +171,12 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.getDOMNode", () => {
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
         if (
             x1 !== x2
         ) {
-          let cond = (
+          const cond = (
               (
                   x1 === div2 &&
                   (x2 === window.document || x2 === undefined)
@@ -187,15 +187,15 @@ describe("UtilsDOM", () => {
           );
           dataSet.push({
             params: [x1, x2],
-            result: cond
+            result: cond,
           });
         }
       }
     }
 
-    for (let set of dataSet) {
-      let result1 = UtilsDOM.getDOMNode.apply(UtilsDOM, set.params);
-      let result2 = Utils.DOM.getDOMNode.apply(UtilsDOM, set.params);
+    for (const set of dataSet) {
+      const result1 = UtilsDOM.getDOMNode.apply(UtilsDOM, set.params);
+      const result2 = Utils.DOM.getDOMNode.apply(UtilsDOM, set.params);
 
       expect(result1).toEqual(result2);
 
@@ -208,26 +208,26 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.getBoundingClientRect", () => {
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
-        for (let x3 of paramsValues) {
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
+        for (const x3 of paramsValues) {
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
               [x1, x2].indexOf(x3) === -1
           ) {
-            let cond = (x1 === div2 && (typeof x2 === "undefined" || x2 === window.document)) || (x1 === div3 && x2 === iframe.contentWindow.document);
+            const cond = (x1 === div2 && (typeof x2 === "undefined" || x2 === window.document)) || (x1 === div3 && x2 === iframe.contentWindow.document);
             dataSet.push({
               params: [x1, x2, x3],
-              result: cond
+              result: cond,
             });
           }
         }
       }
     }
 
-    for (let set of dataSet) {
-      let result = UtilsDOM.getBoundingClientRect.apply(UtilsDOM, set.params);
+    for (const set of dataSet) {
+      const result = UtilsDOM.getBoundingClientRect.apply(UtilsDOM, set.params);
 
       expect(typeof(result)).toEqual("object");
 
@@ -266,26 +266,26 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.findElementPosition", () => {
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
-        for (let x3 of paramsValues) {
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
+        for (const x3 of paramsValues) {
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
               [x1, x2].indexOf(x3) === -1
           ) {
-            let cond = (x1 === div2 && (typeof x2 === "undefined" || x2 === window.document)) || (x1 === div3 && x2 === iframe.contentWindow.document);
+            const cond = (x1 === div2 && (typeof x2 === "undefined" || x2 === window.document)) || (x1 === div3 && x2 === iframe.contentWindow.document);
             dataSet.push({
               params: [x1, x2, x3],
-              result: cond
+              result: cond,
             });
           }
         }
       }
     }
 
-    for (let set of dataSet) {
-      let result = UtilsDOM.findElementPosition.apply(UtilsDOM, set.params);
+    for (const set of dataSet) {
+      const result = UtilsDOM.findElementPosition.apply(UtilsDOM, set.params);
 
       expect(typeof(result)).toEqual("object");
 
@@ -306,15 +306,15 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.addEvent", () => {
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
-        for (let x3 of paramsValues) {
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
+        for (const x3 of paramsValues) {
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
               [x1, x2].indexOf(x3) === -1
           ) {
-            let cond = (
+            const cond = (
                 x1 &&
                 typeof x1 === "object" &&
                 typeof x2 === "string" &&
@@ -322,15 +322,15 @@ describe("UtilsDOM", () => {
             );
             dataSet.push({
               params: [x1, x2, x3],
-              result: cond
+              result: cond,
             });
           }
         }
       }
     }
 
-    for (let set of dataSet) {
-      let result = UtilsDOM.addEvent.apply(UtilsDOM, set.params);
+    for (const set of dataSet) {
+      const result = UtilsDOM.addEvent.apply(UtilsDOM, set.params);
 
       expect(typeof(result)).toEqual("boolean");
 
@@ -343,15 +343,15 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.removeEvent", () => {
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
-        for (let x3 of paramsValues) {
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
+        for (const x3 of paramsValues) {
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
               [x1, x2].indexOf(x3) === -1
           ) {
-            let cond = (
+            const cond = (
                 x1 &&
                 typeof x1 === "object" &&
                 typeof x2 === "string" &&
@@ -359,15 +359,15 @@ describe("UtilsDOM", () => {
             );
             dataSet.push({
               params: [x1, x2, x3],
-              result: cond
+              result: cond,
             });
           }
         }
       }
     }
 
-    for (let set of dataSet) {
-      let result = UtilsDOM.removeEvent.apply(UtilsDOM, set.params);
+    for (const set of dataSet) {
+      const result = UtilsDOM.removeEvent.apply(UtilsDOM, set.params);
 
       expect(typeof(result)).toEqual("boolean");
 
@@ -400,15 +400,15 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.getElementByTagName", () => {
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
-        for (let x3 of paramsValues) {
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
+        for (const x3 of paramsValues) {
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
               [x1, x2].indexOf(x3) === -1
           ) {
-            let cond = (
+            const cond = (
                 typeof x1 === "string" &&
                 x1 === "div" &&
                 (UtilsDOM.isDOMDocument(x2) || x2 === undefined) &&
@@ -417,15 +417,15 @@ describe("UtilsDOM", () => {
             );
             dataSet.push({
               params: [x1, x2, x3],
-              result: cond
+              result: cond,
             });
           }
         }
       }
     }
 
-    for (let set of dataSet) {
-      let result = UtilsDOM.getElementByTagName.apply(UtilsDOM, set.params);
+    for (const set of dataSet) {
+      const result = UtilsDOM.getElementByTagName.apply(UtilsDOM, set.params);
 
       if (set.result) {
         expect(result).not.toBeNull();
@@ -436,7 +436,7 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.getLineHeight", () => {
-    let result = UtilsDOM.getLineHeight();
+    const result = UtilsDOM.getLineHeight();
     expect(typeof(result)).toEqual("number");
     expect(result).toBeCalculable();
   });

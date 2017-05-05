@@ -1,5 +1,4 @@
 "use strict";
-
 /**
  * Class for working with cookie
  */
@@ -67,7 +66,7 @@ export default class Cookie {
         /**
          * Validate input data
          */
-        let a: any = document.createElement("a");
+        const a: any = document.createElement("a");
         a.href = "http://" + domain + path;
         if (
             a.hostname === domain ||
@@ -81,9 +80,9 @@ export default class Cookie {
              * Save cookies for 30 days
              * @type {Date}
              */
-            let date: Date = new Date();
+            const date: Date = new Date();
             date.setTime(date.getTime() + (expires * 24 * 60 * 60 * 1000));
-            let exp: string = date.toUTCString();
+            const exp: string = date.toUTCString();
             /**
              * Encode value for store
              * @type {string}
@@ -158,16 +157,16 @@ export default class Cookie {
            * Get the array from document cookie split by ;
            * @type {string[]}
            */
-          let arrCookie: Array<string> = document.cookie.split(";");
+          const arrCookie: string[] = document.cookie.split(";");
           /**
            * Iterate through the cookies
            */
-          for (let i of arrCookie) {
+          for (const i of arrCookie) {
             /**
              * Trim and split each cookie by = for key value pare
              * @type {string[]}
              */
-            let v: Array<string> = i.trim().split("=", 2);
+            const v: string[] = i.trim().split("=", 2);
             /**
              * If it is correct cookie key return the value
              */
@@ -258,7 +257,7 @@ export default class Cookie {
    * @param checkSupport {boolean}
    * @returns {string[]}
    */
-  public static getKeys(checkSupport: boolean = true): Array<string> {
+  public static getKeys(checkSupport: boolean = true): string[] {
     try {
       /**
        * Validate input data
@@ -274,21 +273,21 @@ export default class Cookie {
            * The array of available keys
            * @type {Array}
            */
-          let arrKeys: Array<string> = [];
+          const arrKeys: string[] = [];
           /**
            * Get the array from document cookie split by ;
            * @type {string[]}
            */
-          let arrCookie: Array<string> = document.cookie.split(";");
+          const arrCookie: string[] = document.cookie.split(";");
           /**
            * Iterate through the cookies
            */
-          for (let i of arrCookie) {
+          for (const i of arrCookie) {
             /**
              * Trim and split each cookie by = for key value pare
              * @type {string[]}
              */
-            let v: Array<string> = i.trim().split("=", 2);
+            const v: string[] = i.trim().split("=", 2);
             /**
              * Add key to the list
              */
@@ -334,9 +333,9 @@ export default class Cookie {
          * If that store is supported
          */
         if (!checkSupport || Cookie.isSupported()) {
-          let arrKeys = Cookie.getKeys(checkSupport);
+          const arrKeys = Cookie.getKeys(checkSupport);
           if (arrKeys) {
-            for (let i of arrKeys) {
+            for (const i of arrKeys) {
               Cookie.removeItem(checkSupport, i);
             }
           }

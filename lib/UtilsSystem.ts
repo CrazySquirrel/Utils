@@ -10,7 +10,7 @@ export default class System {
    */
   public static getInfo(): {
     name: string,
-    version: string
+    version: string,
   } {
     return {
       name: System.getName(),
@@ -24,7 +24,7 @@ export default class System {
    */
   public static getName(): string {
     let os = "";
-    let clientStrings = [
+    const clientStrings = [
       {
         r: /(Windows 10.0|Windows NT 10.0)/,
         s: "Windows 10",
@@ -130,7 +130,7 @@ export default class System {
         s: "Search Bot",
       },
     ];
-    for (let cs of clientStrings) {
+    for (const cs of clientStrings) {
       if (cs.r.test(navigator.userAgent)) {
         os = cs.s;
         break;
@@ -171,7 +171,7 @@ export default class System {
         break;
 
       case "iOS":
-        let reg = /OS (\d+)_(\d+)_?(\d+)?/.exec(navigator.appVersion);
+        const reg = /OS (\d+)_(\d+)_?(\d+)?/.exec(navigator.appVersion);
         if (reg) {
           osVersion = reg[1] + "." + reg[2] + "." + (reg[3] || 0);
         }

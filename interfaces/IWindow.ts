@@ -3,17 +3,23 @@
  * The storage interface
  */
 interface IWindow {
-    document: any;
-    Utils: any;
+  document?: any;
+  Utils?: any;
 
-    eventListenerAdded: boolean;
+  eventListenerAdded?: boolean;
 
-    innerHeight: number;
-    innerWidth: number;
-    pageXOffset: number;
-    pageYOffset: number;
+  innerHeight?: number;
+  innerWidth?: number;
+  pageXOffset?: number;
+  pageYOffset?: number;
 
-    globalStorage: Object;
+  globalStorage?: any;
+
+  screen?: Screen;
+
+  devicePixelRatio?: number;
+
+  Promise?: Promise<any>;
 }
 /**
  * Declare window interface

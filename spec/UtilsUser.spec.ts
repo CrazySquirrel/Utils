@@ -16,8 +16,8 @@ describe("UtilsUser", () => {
   });
 
   it("UtilsUser.getInfo", () => {
-    let info1 = UtilsUser.getInfo();
-    let info2 = Utils.User.getInfo();
+    const info1 = UtilsUser.getInfo();
+    const info2 = Utils.User.getInfo();
 
     expect(info1).toEqual(info2);
 

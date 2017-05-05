@@ -10,7 +10,7 @@ export default class Browser {
   public static getInfo(): {
     browser: string,
     mobile: boolean,
-    version: string
+    version: string,
   } {
     return {
       browser: Browser.getName(),
@@ -80,9 +80,9 @@ export default class Browser {
     if (
         typeof version === "string"
     ) {
-      let chars = [";", " ", ")"];
-      for (let char of chars) {
-        let ix = version.indexOf(char);
+      const chars = [";", " ", ")"];
+      for (const char of chars) {
+        const ix = version.indexOf(char);
         if (ix !== -1) {
           version = version.substring(0, ix);
         }
@@ -136,8 +136,8 @@ export default class Browser {
    * @return {string}
    */
   public static getOperaNewVersion(): string {
-    let verOffset = navigator.userAgent.indexOf("OPR");
-    let version = navigator.userAgent.substring(verOffset + 4);
+    const verOffset = navigator.userAgent.indexOf("OPR");
+    const version = navigator.userAgent.substring(verOffset + 4);
     return Browser.trimVersion(version);
   }
 
@@ -154,8 +154,8 @@ export default class Browser {
    * @return {string}
    */
   public static getMSIEVersion(): string {
-    let verOffset = navigator.userAgent.indexOf("MSIE");
-    let version = navigator.userAgent.substring(verOffset + 5);
+    const verOffset = navigator.userAgent.indexOf("MSIE");
+    const version = navigator.userAgent.substring(verOffset + 5);
     return Browser.trimVersion(version);
   }
 
@@ -172,7 +172,7 @@ export default class Browser {
    * @return {string}
    */
   public static getMSIENewVersion(): string {
-    let version = navigator.userAgent.substring(navigator.userAgent.indexOf("rv:") + 3);
+    const version = navigator.userAgent.substring(navigator.userAgent.indexOf("rv:") + 3);
     return Browser.trimVersion(version);
   }
 
@@ -189,8 +189,8 @@ export default class Browser {
    * @return {string}
    */
   public static getChromeVersion(): string {
-    let verOffset = navigator.userAgent.indexOf("Chrome");
-    let version = navigator.userAgent.substring(verOffset + 7);
+    const verOffset = navigator.userAgent.indexOf("Chrome");
+    const version = navigator.userAgent.substring(verOffset + 7);
     return Browser.trimVersion(version);
   }
 
@@ -232,8 +232,8 @@ export default class Browser {
    * @return {string}
    */
   public static getFirefoxVersion(): string {
-    let verOffset = navigator.userAgent.indexOf("Firefox");
-    let version = navigator.userAgent.substring(verOffset + 8);
+    const verOffset = navigator.userAgent.indexOf("Firefox");
+    const version = navigator.userAgent.substring(verOffset + 8);
     return Browser.trimVersion(version);
   }
 
@@ -242,8 +242,8 @@ export default class Browser {
    * @return {boolean}
    */
   public static isOther(): boolean {
-    let nameOffset = navigator.userAgent.lastIndexOf(" ") + 1;
-    let verOffset = navigator.userAgent.lastIndexOf("/");
+    const nameOffset = navigator.userAgent.lastIndexOf(" ") + 1;
+    const verOffset = navigator.userAgent.lastIndexOf("/");
     return nameOffset < verOffset;
   }
 
@@ -252,8 +252,8 @@ export default class Browser {
    * @return {string}
    */
   public static getOtherName(): string {
-    let nameOffset = navigator.userAgent.lastIndexOf(" ") + 1;
-    let verOffset = navigator.userAgent.lastIndexOf("/");
+    const nameOffset = navigator.userAgent.lastIndexOf(" ") + 1;
+    const verOffset = navigator.userAgent.lastIndexOf("/");
     let browser = navigator.userAgent.substring(nameOffset, verOffset);
     if (browser.toLowerCase() === browser.toUpperCase()) {
       browser = navigator.appName;
@@ -266,9 +266,8 @@ export default class Browser {
    * @return {string}
    */
   public static getOtherVersion(): string {
-    let nameOffset = navigator.userAgent.lastIndexOf(" ") + 1;
-    let verOffset = navigator.userAgent.lastIndexOf("/");
-    let version = navigator.userAgent.substring(verOffset + 1);
+    const verOffset = navigator.userAgent.lastIndexOf("/");
+    const version = navigator.userAgent.substring(verOffset + 1);
     return Browser.trimVersion(version);
   }
 

@@ -47,20 +47,20 @@ describe("Utils", () => {
   });
 
   it("Utils.warn()", () => {
-    let messange = "Test";
+    const messange = "Test";
     expect(Utils.warn(messange)).toEqual(messange);
   });
 
   it("Utils.getBoundingClientRect()", () => {
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
-        for (let x3 of paramsValues) {
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
+        for (const x3 of paramsValues) {
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
               [x1, x2].indexOf(x3) === -1
           ) {
-            let cond = (x1 === div2 && (typeof x2 === "undefined" || x2 === window.document)) || (x1 === div3 && x2 === iframe.contentWindow.document);
+            const cond = (x1 === div2 && (typeof x2 === "undefined" || x2 === window.document)) || (x1 === div3 && x2 === iframe.contentWindow.document);
             dataSet.push({
               params: [x1, x2, x3],
               result: cond,
@@ -70,8 +70,8 @@ describe("Utils", () => {
       }
     }
 
-    for (let set of dataSet) {
-      let result = Utils.getBoundingClientRect.apply(Utils, set.params);
+    for (const set of dataSet) {
+      const result = Utils.getBoundingClientRect.apply(Utils, set.params);
 
       expect(typeof(result)).toEqual("object");
 
@@ -110,15 +110,15 @@ describe("Utils", () => {
   });
 
   it("Utils.findElementPosition()", () => {
-    for (let x1 of paramsValues) {
-      for (let x2 of paramsValues) {
-        for (let x3 of paramsValues) {
+    for (const x1 of paramsValues) {
+      for (const x2 of paramsValues) {
+        for (const x3 of paramsValues) {
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
               [x1, x2].indexOf(x3) === -1
           ) {
-            let cond = (x1 === div2 && (typeof x2 === "undefined" || x2 === window.document)) || (x1 === div3 && x2 === iframe.contentWindow.document);
+            const cond = (x1 === div2 && (typeof x2 === "undefined" || x2 === window.document)) || (x1 === div3 && x2 === iframe.contentWindow.document);
             dataSet.push({
               params: [x1, x2, x3],
               result: cond,
@@ -128,8 +128,8 @@ describe("Utils", () => {
       }
     }
 
-    for (let set of dataSet) {
-      let result = Utils.findElementPosition.apply(Utils, set.params);
+    for (const set of dataSet) {
+      const result = Utils.findElementPosition.apply(Utils, set.params);
 
       expect(typeof(result)).toEqual("object");
 
@@ -150,18 +150,18 @@ describe("Utils", () => {
   });
 
   it("Utils.implementationStaticMethods()", () => {
-    let _utils = new Utils();
-    let _paramsValues = [undefined, null, false, true, 123, "Utils", Utils, _utils];
+    const _utils = new Utils();
+    const _paramsValues = [undefined, null, false, true, 123, "Utils", Utils, _utils];
 
-    let _dataSet = [
+    const _dataSet = [
       {
         params: [],
         result: false,
       },
     ];
 
-    for (let x1 of _paramsValues) {
-      for (let x2 of _paramsValues) {
+    for (const x1 of _paramsValues) {
+      for (const x2 of _paramsValues) {
         _dataSet.push({
           params: [x1, x2],
           result: (x1 === _utils),
@@ -169,7 +169,7 @@ describe("Utils", () => {
       }
     }
 
-    for (let set of _dataSet) {
+    for (const set of _dataSet) {
       Utils.implementationStaticMethods.apply(Utils, set.params);
       if (set.result) {
         expect(Object.keys(set.params[0])).toBeArray(Object.keys(Utils));
@@ -178,11 +178,11 @@ describe("Utils", () => {
   });
 
   it("Utils.stack()", () => {
-    let stack: any = Utils.stack();
+    const stack: any = Utils.stack();
 
     expect(stack).toBeArray();
 
-    for (let obj of stack) {
+    for (const obj of stack) {
       expect(typeof(obj)).toEqual("object");
 
       expect(Object.keys(obj)).toBeArray(["file", "column", "line", "method"]);
@@ -198,8 +198,8 @@ describe("Utils", () => {
   });
 
   it("Utils.getUID()", () => {
-    let ID1 = Utils.getUID();
-    let ID2 = Utils.getUID();
+    const ID1 = Utils.getUID();
+    const ID2 = Utils.getUID();
 
     expect(typeof(ID1)).toEqual("string");
 

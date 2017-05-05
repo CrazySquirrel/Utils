@@ -5,7 +5,9 @@
 import UtilsBrowser from "./UtilsBrowser";
 import UtilsScreen from "./UtilsScreen";
 import UtilsSystem from "./UtilsSystem";
-
+/**
+ * Class for working with user data
+ */
 export default class User {
   /**
    * Get user info
@@ -15,24 +17,24 @@ export default class User {
     browser: {
       browser: string,
       mobile: boolean,
-      version: string
+      version: string,
     },
     screen: {
       availableSize: {
         height: number,
-        width: number
+        width: number,
       },
       colorDepth: number,
       pixelRatio: number,
       size: {
         height: number,
-        width: number
-      }
+        width: number,
+      },
     },
     system: {
       name: string,
-      version: string
-    }
+      version: string,
+    },
   } {
     return {
       browser: UtilsBrowser.getInfo(),

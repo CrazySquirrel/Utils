@@ -33,17 +33,17 @@ describe("UtilsWindow", () => {
     window.document.body.appendChild(iframe);
     iframe.contentWindow.document.body.appendChild(div3);
 
-    let paramsValues = [undefined, null, false, true, 123, "test", div1, div2, div3, window, window.document, iframe.contentWindow, iframe.contentWindow.document, window.document.body];
+    const paramsValues = [undefined, null, false, true, 123, "test", div1, div2, div3, window, window.document, iframe.contentWindow, iframe.contentWindow.document, window.document.body];
     dataSet = [];
-    for (let x1 of paramsValues) {
-      let cond = (
+    for (const x1 of paramsValues) {
+      const cond = (
           x1 === undefined ||
           x1 === window ||
           x1 === iframe.contentWindow
       );
       dataSet.push({
         params: [x1],
-        result: cond
+        result: cond,
       });
     }
   });
@@ -53,14 +53,14 @@ describe("UtilsWindow", () => {
     window.document.body.removeChild(iframe);
   });
 
-  let test = (methods, _dataSet) => {
-    for (let set of _dataSet) {
-      let results = [];
-      for (let method of methods) {
+  const test = (methods, _dataSet) => {
+    for (const set of _dataSet) {
+      const results = [];
+      for (const method of methods) {
         results.push(method.apply(UtilsWindow, set.params));
       }
-      let result = results[0];
-      for (let _result of results) {
+      const result = results[0];
+      for (const _result of results) {
         expect(_result).toEqual(result);
       }
 
@@ -87,14 +87,14 @@ describe("UtilsWindow", () => {
   });
 
   it("UtilsWindow.getSizes", () => {
-    let methods = [UtilsWindow.getSizes, Utils.Window.getSizes];
-    for (let set of dataSet) {
-      let results = [];
-      for (let method of methods) {
+    const methods = [UtilsWindow.getSizes, Utils.Window.getSizes];
+    for (const set of dataSet) {
+      const results = [];
+      for (const method of methods) {
         results.push(method.apply(UtilsWindow, set.params));
       }
-      let result = results[0];
-      for (let _result of results) {
+      const result = results[0];
+      for (const _result of results) {
         expect(_result).toEqual(result);
       }
 

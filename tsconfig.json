@@ -1,12 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2015",
+    "lib": ["es2016", "dom"],
     "sourceMap": false,
     "inlineSourceMap": true,
     "declaration": true
   },
   "files": [
-    "./lib/Utils.ts"
+    "./lib/Utils.ts",
+    "./lib/UtilsAnimation.ts",
+    "./lib/UtilsAnimationEasing.ts",
+    "./lib/UtilsBrowser.ts",
+    "./lib/UtilsCookie.ts",
+    "./lib/UtilsDocument.ts",
+    "./lib/UtilsDOM.ts",
+    "./lib/UtilsMain.ts",
+    "./lib/UtilsMouse.ts",
+    "./lib/UtilsScreen.ts",
+    "./lib/UtilsSystem.ts",
+    "./lib/UtilsUser.ts",
+    "./lib/UtilsWindow.ts"
   ],
   "exclude": [
     "node_modules",
