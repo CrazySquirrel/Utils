@@ -113,7 +113,10 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /lib\/(.*)\.ts(x?)$/,
+        test: /\.ts(x?)$/,
+        include: [
+          path.resolve(__dirname, "lib")
+        ],
         use: [
           {
             loader: replacements
@@ -131,7 +134,10 @@ module.exports = {
         ]
       },
       {
-        test: /(spec|src|polyfills)\/(.*)\.ts(x?)$/,
+        test: /\.ts(x?)$/,
+        exclude: [
+          path.resolve(__dirname, "lib")
+        ],
         use: [
           {
             loader: replacements

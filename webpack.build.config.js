@@ -54,7 +54,7 @@ objBuildList = Object.assign(
       "./lib/UtilsScreen": ["./lib/UtilsScreen.ts"],
       "./lib/UtilsSystem": ["./lib/UtilsSystem.ts"],
       "./lib/UtilsUser": ["./lib/UtilsUser.ts"],
-      "./lib/UtilsWindow": ["./lib/UtilsWindow.ts"],
+      "./lib/UtilsWindow": ["./lib/UtilsWindow.ts"]
     }
 );
 
@@ -64,7 +64,7 @@ if (MODE_2 !== "stat") {
       {
         "./dist/simple-typescript-example/index": ["./src/simple-typescript-example/index.ts"],
         "./dist/simple-javascript-example/index": ["./src/simple-javascript-example/index.ts"],
-        "./dist/test-scope/index": ["./src/test-scope/index.ts"],
+        "./dist/test-scope/index": ["./src/test-scope/index.ts"]
       }
   );
 }
