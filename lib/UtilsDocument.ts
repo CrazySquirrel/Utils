@@ -2,7 +2,7 @@
 /**
  * Import interfaces
  */
-import IWindow from "../Interfaces/IWindow";
+import IWindow from "../Interfaces/IWindow.ts";
 /**
  * Declare window interface
  */
@@ -10,7 +10,7 @@ declare let window: IWindow;
 /**
  * Import additional classes
  */
-import UtilsWindow from "./UtilsWindow";
+import UtilsWindow from "./UtilsWindow.ts";
 /**
  * Class for working with document
  */

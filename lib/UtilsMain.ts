@@ -2,7 +2,7 @@
 /**
  * Import interfaces
  */
-import IError from "../interfaces/IError";
+import IError from "../interfaces/IError.ts";
 /**
  * Declare window interface
  */

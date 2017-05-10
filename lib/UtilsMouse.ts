@@ -2,8 +2,8 @@
 /**
  * Import additional classes
  */
-import UtilsDOM from "./UtilsDOM";
-import UtilsWindow from "./UtilsWindow";
+import UtilsDOM from "./UtilsDOM.ts";
+import UtilsWindow from "./UtilsWindow.ts";
 /**
  * Class for working with mouse
  */

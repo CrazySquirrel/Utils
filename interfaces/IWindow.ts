@@ -2,7 +2,7 @@
 /**
  * The storage interface
  */
-interface IWindow {
+ interface IWindow {
   document?: any;
   Utils?: any;
 
@@ -21,10 +21,6 @@ interface IWindow {
 
   Promise?: Promise<any>;
 }
-/**
- * Declare window interface
- */
-declare var window: IWindow;
 /**
  * Export the window interface
  */

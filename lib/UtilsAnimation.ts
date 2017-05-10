@@ -2,7 +2,7 @@
 /**
  * Import subclasses
  */
-import UtilsAnimationEasing from "./UtilsAnimationEasing";
+import UtilsAnimationEasing from "./UtilsAnimationEasing.ts";
 /**
  * Class for working with animation
  */
