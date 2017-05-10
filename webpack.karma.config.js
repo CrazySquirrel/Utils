@@ -122,7 +122,7 @@ module.exports = {
             loader: "babel-loader",
             options: {
               presets: ["es2015"],
-              plugins: ["istanbul", "transform-runtime"]
+              plugins: ["istanbul"]
             }
           },
           {
@@ -139,8 +139,7 @@ module.exports = {
           {
             loader: "babel-loader",
             options: {
-              presets: ["es2015"],
-              plugins: ["transform-runtime"]
+              presets: ["es2015"]
             }
           },
           {

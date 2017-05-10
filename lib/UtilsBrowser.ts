@@ -81,8 +81,12 @@ export default class Browser {
         typeof version === "string"
     ) {
       const chars = [";", " ", ")"];
-      for (const char of chars) {
+
+      for (let j = 0; j < chars.length; j++) {
+        const char = chars[j];
+
         const ix = version.indexOf(char);
+
         if (ix !== -1) {
           version = version.substring(0, ix);
         }

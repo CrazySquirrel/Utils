@@ -19,7 +19,10 @@ describe("UtilsMouse", () => {
     evt.initMouseEvent("wheel", true, true, window, 10, 10, 10, 80, 20, false, false, false, false, 10, null);
 
     const paramsValues = [evt, undefined, null, false, true, 123, "test", window, window.document, window.document.body];
-    for (const paramsValue of paramsValues) {
+
+    for (let j = 0; j < paramsValues.length; j++) {
+      const paramsValue = paramsValues[j];
+
       const result = UtilsMouse.getWheelDelta(paramsValue);
 
       expect(typeof(result)).toEqual("number");

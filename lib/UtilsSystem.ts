@@ -130,7 +130,10 @@ export default class System {
         s: "Search Bot",
       },
     ];
-    for (const cs of clientStrings) {
+
+    for (let j = 0; j < clientStrings.length; j++) {
+      const cs = clientStrings[j];
+
       if (cs.r.test(navigator.userAgent)) {
         os = cs.s;
         break;

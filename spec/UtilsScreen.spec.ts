@@ -14,11 +14,18 @@ describe("UtilsScreen", () => {
 
   const test = (methods) => {
     const results = [];
-    for (const method of methods) {
+
+    for (let j = 0; j < methods.length; j++) {
+      const method = methods[j];
+
       results.push(method.apply(UtilsScreen, []));
     }
+
     const result = results[0];
-    for (const _result of results) {
+
+    for (let j = 0; j < results.length; j++) {
+      const _result = results[j];
+
       expect(typeof(_result)).toEqual("number");
       expect(_result).toBeCalculable();
       expect(_result).toEqual(result);
@@ -28,11 +35,18 @@ describe("UtilsScreen", () => {
 
   const test2 = (methods) => {
     const results = [];
-    for (const method of methods) {
+
+    for (let j = 0; j < methods.length; j++) {
+      const method = methods[j];
+
       results.push(method.apply(UtilsScreen, []));
     }
+
     const result = results[0];
-    for (const _result of results) {
+
+    for (let j = 0; j < results.length; j++) {
+      const _result = results[j];
+
       expect(typeof(_result)).toEqual("object");
       expect(Object.keys(_result)).toBeArray(["width", "height"]);
 

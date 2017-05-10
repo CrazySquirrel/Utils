@@ -21,10 +21,18 @@ describe("UtilsAnimationEasing", () => {
     const paramsValues = [undefined, null, true, 10, 123, "test", now, now + 1000];
     dataSet = [];
 
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
-        for (const x3 of paramsValues) {
-          for (const x4 of paramsValues) {
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
+        for (let i3 = 0; i3 < paramsValues.length; i3++) {
+          const x3 = paramsValues[i3];
+
+          for (let i4 = 0; i4 < paramsValues.length; i4++) {
+            const x4 = paramsValues[i4];
+
             const cond = (
                 typeof x1 === "number" &&
                 typeof x2 === "number" &&
@@ -43,13 +51,22 @@ describe("UtilsAnimationEasing", () => {
   });
 
   const test = (methods, _dataSet) => {
-    for (const set of _dataSet) {
+    for (let i = 0; i < _dataSet.length; i++) {
+      const set = _dataSet[i];
+
       const results = [];
-      for (const method of methods) {
+
+      for (let j = 0; j < methods.length; j++) {
+        const method = methods[j];
+
         results.push(method.apply(UtilsAnimationEasing, set.params));
       }
+
       const result = results[0];
-      for (const _result of results) {
+
+      for (let j = 0; j < results.length; j++) {
+        const _result = results[j];
+
         expect(_result).toEqual(result);
       }
 

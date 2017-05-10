@@ -246,7 +246,10 @@ describe("UtilsBrowser", () => {
     expect(trimVersion1).toEqual(trimVersion2);
 
     const paramsValues = [undefined, null, true, 123, "test", trimVersion1];
-    for (const paramsValue of paramsValues) {
+
+    for (let j = 0; j < paramsValues.length; j++) {
+      const paramsValue = paramsValues[j];
+
       const trimVersion = UtilsBrowser.trimVersion(paramsValue);
 
       expect(typeof(trimVersion)).toEqual("string");

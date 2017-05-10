@@ -12,6 +12,7 @@
     "no-console": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "no-empty": false
+    "no-empty": false,
+    "prefer-for-of": false
   }
 }

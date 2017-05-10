@@ -45,8 +45,12 @@ describe("UtilsDOM", () => {
   });
 
   const testClass = () => {
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
         if (
             x1 !== x2
         ) {
@@ -63,7 +67,9 @@ describe("UtilsDOM", () => {
       }
     }
 
-    for (const set of dataSet) {
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       /**
        * Add class
        */
@@ -171,8 +177,12 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.getDOMNode", () => {
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
         if (
             x1 !== x2
         ) {
@@ -193,7 +203,9 @@ describe("UtilsDOM", () => {
       }
     }
 
-    for (const set of dataSet) {
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       const result1 = UtilsDOM.getDOMNode.apply(UtilsDOM, set.params);
       const result2 = Utils.DOM.getDOMNode.apply(UtilsDOM, set.params);
 
@@ -208,9 +220,15 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.getBoundingClientRect", () => {
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
-        for (const x3 of paramsValues) {
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
+        for (let i3 = 0; i3 < paramsValues.length; i3++) {
+          const x3 = paramsValues[i3];
+
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
@@ -226,7 +244,9 @@ describe("UtilsDOM", () => {
       }
     }
 
-    for (const set of dataSet) {
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       const result = UtilsDOM.getBoundingClientRect.apply(UtilsDOM, set.params);
 
       expect(typeof(result)).toEqual("object");
@@ -266,9 +286,15 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.findElementPosition", () => {
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
-        for (const x3 of paramsValues) {
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
+        for (let i3 = 0; i3 < paramsValues.length; i3++) {
+          const x3 = paramsValues[i3];
+
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
@@ -284,7 +310,9 @@ describe("UtilsDOM", () => {
       }
     }
 
-    for (const set of dataSet) {
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       const result = UtilsDOM.findElementPosition.apply(UtilsDOM, set.params);
 
       expect(typeof(result)).toEqual("object");
@@ -306,9 +334,15 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.addEvent", () => {
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
-        for (const x3 of paramsValues) {
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
+        for (let i3 = 0; i3 < paramsValues.length; i3++) {
+          const x3 = paramsValues[i3];
+
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
@@ -329,7 +363,9 @@ describe("UtilsDOM", () => {
       }
     }
 
-    for (const set of dataSet) {
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       const result = UtilsDOM.addEvent.apply(UtilsDOM, set.params);
 
       expect(typeof(result)).toEqual("boolean");
@@ -343,9 +379,15 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.removeEvent", () => {
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
-        for (const x3 of paramsValues) {
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
+        for (let i3 = 0; i3 < paramsValues.length; i3++) {
+          const x3 = paramsValues[i3];
+
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
@@ -366,7 +408,9 @@ describe("UtilsDOM", () => {
       }
     }
 
-    for (const set of dataSet) {
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       const result = UtilsDOM.removeEvent.apply(UtilsDOM, set.params);
 
       expect(typeof(result)).toEqual("boolean");
@@ -400,9 +444,15 @@ describe("UtilsDOM", () => {
   });
 
   it("UtilsDOM.getElementByTagName", () => {
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
-        for (const x3 of paramsValues) {
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
+        for (let i3 = 0; i3 < paramsValues.length; i3++) {
+          const x3 = paramsValues[i3];
+
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
@@ -424,7 +474,9 @@ describe("UtilsDOM", () => {
       }
     }
 
-    for (const set of dataSet) {
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       const result = UtilsDOM.getElementByTagName.apply(UtilsDOM, set.params);
 
       if (set.result) {

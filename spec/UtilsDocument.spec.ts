@@ -35,7 +35,10 @@ describe("UtilsDocument", () => {
 
     const paramsValues = [undefined, null, false, true, 123, "test", div1, div2, div3, window, window.document, iframe.contentWindow, iframe.contentWindow.document, window.document.body];
     dataSet = [];
-    for (const x1 of paramsValues) {
+
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
       const cond = (
           x1 === undefined ||
           x1 === window ||
@@ -54,13 +57,22 @@ describe("UtilsDocument", () => {
   });
 
   const test = (methods, _dataSet) => {
-    for (const set of _dataSet) {
+    for (let i = 0; i < _dataSet.length; i++) {
+      const set = _dataSet[i];
+
       const results = [];
-      for (const method of methods) {
+
+      for (let j = 0; j < methods.length; j++) {
+        const method = methods[j];
+
         results.push(method.apply(UtilsDocument, set.params));
       }
+
       const result = results[0];
-      for (const _result of results) {
+
+      for (let j = 0; j < results.length; j++) {
+        const _result = results[j];
+
         expect(_result).toEqual(result);
       }
 
@@ -96,13 +108,23 @@ describe("UtilsDocument", () => {
 
   it("UtilsDocument.getScroll", () => {
     const methods = [UtilsDocument.getScroll, Utils.Document.getScroll];
-    for (const set of dataSet) {
+
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       const results = [];
-      for (const method of methods) {
+
+      for (let j = 0; j < methods.length; j++) {
+        const method = methods[j];
+
         results.push(method.apply(UtilsDocument, set.params));
       }
+
       const result = results[0];
-      for (const _result of results) {
+
+      for (let j = 0; j < results.length; j++) {
+        const _result = results[j];
+
         expect(_result).toEqual(result);
       }
 

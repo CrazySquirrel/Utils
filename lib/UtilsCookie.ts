@@ -161,7 +161,8 @@ export default class Cookie {
           /**
            * Iterate through the cookies
            */
-          for (const i of arrCookie) {
+          for (let j = 0; j < arrCookie.length; j++) {
+            const i = arrCookie[j];
             /**
              * Trim and split each cookie by = for key value pare
              * @type {string[]}
@@ -282,7 +283,8 @@ export default class Cookie {
           /**
            * Iterate through the cookies
            */
-          for (const i of arrCookie) {
+          for (let j = 0; j < arrCookie.length; j++) {
+            const i = arrCookie[j];
             /**
              * Trim and split each cookie by = for key value pare
              * @type {string[]}
@@ -333,9 +335,14 @@ export default class Cookie {
          * If that store is supported
          */
         if (!checkSupport || Cookie.isSupported()) {
+
           const arrKeys = Cookie.getKeys(checkSupport);
+
           if (arrKeys) {
-            for (const i of arrKeys) {
+
+            for (let j = 0; j < arrKeys.length; j++) {
+              const i = arrKeys[j];
+
               Cookie.removeItem(checkSupport, i);
             }
           }

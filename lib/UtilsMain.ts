@@ -40,11 +40,18 @@ export default class Main {
         typeof realObject === "object"
     ) {
       const staticClass = realObject.constructor;
+
       if (typeof staticClass === "function") {
+
         const methods = Object.keys(staticClass);
+
         if (methods && methods.length > 0) {
-          for (const method of methods) {
+
+          for (let j = 0; j < methods.length; j++) {
+            const method = methods[j];
+
             if (typeof realObject[method] === "undefined") {
+
               realObject[method] = (...args) => {
                 if (
                     typeof staticClass !== "undefined"

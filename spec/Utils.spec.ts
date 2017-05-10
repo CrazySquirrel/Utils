@@ -10,6 +10,7 @@ declare let require: any;
 import Utils from "../lib/Utils.ts";
 
 describe("Utils", () => {
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 
   let div1;
   let div2;
@@ -52,9 +53,15 @@ describe("Utils", () => {
   });
 
   it("Utils.getBoundingClientRect()", () => {
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
-        for (const x3 of paramsValues) {
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
+        for (let i3 = 0; i3 < paramsValues.length; i3++) {
+          const x3 = paramsValues[i3];
+
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
@@ -70,7 +77,9 @@ describe("Utils", () => {
       }
     }
 
-    for (const set of dataSet) {
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       const result = Utils.getBoundingClientRect.apply(Utils, set.params);
 
       expect(typeof(result)).toEqual("object");
@@ -110,9 +119,15 @@ describe("Utils", () => {
   });
 
   it("Utils.findElementPosition()", () => {
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
-        for (const x3 of paramsValues) {
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
+        for (let i3 = 0; i3 < paramsValues.length; i3++) {
+          const x3 = paramsValues[i3];
+
           if (
               [x2, x3].indexOf(x1) === -1 &&
               [x1, x3].indexOf(x2) === -1 &&
@@ -128,7 +143,9 @@ describe("Utils", () => {
       }
     }
 
-    for (const set of dataSet) {
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       const result = Utils.findElementPosition.apply(Utils, set.params);
 
       expect(typeof(result)).toEqual("object");
@@ -160,8 +177,12 @@ describe("Utils", () => {
       },
     ];
 
-    for (const x1 of _paramsValues) {
-      for (const x2 of _paramsValues) {
+    for (let i1 = 0; i1 < _paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < _paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
         _dataSet.push({
           params: [x1, x2],
           result: (x1 === _utils),
@@ -169,7 +190,9 @@ describe("Utils", () => {
       }
     }
 
-    for (const set of _dataSet) {
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       Utils.implementationStaticMethods.apply(Utils, set.params);
       if (set.result) {
         expect(Object.keys(set.params[0])).toBeArray(Object.keys(Utils));
@@ -182,7 +205,9 @@ describe("Utils", () => {
 
     expect(stack).toBeArray();
 
-    for (const obj of stack) {
+    for (let i = 0; i < stack.length; i++) {
+      const obj = stack[i];
+
       expect(typeof(obj)).toEqual("object");
 
       expect(Object.keys(obj)).toBeArray(["file", "column", "line", "method"]);

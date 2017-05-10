@@ -17,13 +17,28 @@ describe("UtilsCookie", () => {
   const test = () => {
     const paramsValues: any = [undefined, false, true, 30, "value", "/", "test", location.hostname];
     const dataSet = [];
-    for (const x1 of paramsValues) {
-      for (const x2 of paramsValues) {
-        for (const x3 of paramsValues) {
-          for (const x4 of paramsValues) {
-            for (const x5 of paramsValues) {
-              for (const x6 of paramsValues) {
-                for (const x7 of paramsValues) {
+
+    for (let i1 = 0; i1 < paramsValues.length; i1++) {
+      const x1 = paramsValues[i1];
+
+      for (let i2 = 0; i2 < paramsValues.length; i2++) {
+        const x2 = paramsValues[i2];
+
+        for (let i3 = 0; i3 < paramsValues.length; i3++) {
+          const x3 = paramsValues[i3];
+
+          for (let i4 = 0; i4 < paramsValues.length; i4++) {
+            const x4 = paramsValues[i4];
+
+            for (let i5 = 0; i5 < paramsValues.length; i5++) {
+              const x5 = paramsValues[i5];
+
+              for (let i6 = 0; i6 < paramsValues.length; i6++) {
+                const x6 = paramsValues[i6];
+
+                for (let i7 = 0; i7 < paramsValues.length; i7++) {
+                  const x7 = paramsValues[i7];
+
                   if (
                       [x2, x3, x4, x5, x6, x7].indexOf(x1) === -1 &&
                       [x1, x3, x4, x5, x6, x7].indexOf(x2) === -1 &&
@@ -91,7 +106,10 @@ describe("UtilsCookie", () => {
         }
       }
     }
-    for (const set of dataSet) {
+
+    for (let i = 0; i < dataSet.length; i++) {
+      const set = dataSet[i];
+
       /**
        * Set data
        */
