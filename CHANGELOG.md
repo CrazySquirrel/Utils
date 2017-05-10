@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.36"></a>
+## [1.0.36](https://github.com/CrazySquirrel/Utils/compare/v1.0.35...v1.0.36) (2017-05-10)
+
+
+### Bug Fixes
+
+* **Webpack:** Webpack 2 support bug fix ([2c5b8db](https://github.com/CrazySquirrel/Utils/commit/2c5b8db))
+
+
+
 <a name="1.0.35"></a>
 ## [1.0.35](https://github.com/CrazySquirrel/Utils/compare/v1.0.34...v1.0.35) (2017-05-10)
 
