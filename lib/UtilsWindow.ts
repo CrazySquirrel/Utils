@@ -1,13 +1,5 @@
 "use strict";
 /**
- * Import interfaces
- */
-import IWindow from "../Interfaces/IWindow.ts";
-/**
- * Declare window interface
- */
-declare let window: IWindow;
-/**
  * Class for working with window
  */
 export default class Window {
@@ -31,8 +23,8 @@ export default class Window {
    * @param objWindow
    * @return {number}
    */
-  public static getHeight(objWindow: IWindow = window): number {
-    if (Window.isWindow(objWindow)) {
+  public static getHeight(objWindow: any = window): number {
+      if (Window.isWindow(objWindow)) {
       return objWindow.innerHeight || objWindow.document.documentElement.clientHeight || objWindow.document.body.clientHeight;
     } else {
       return NaN;
@@ -44,7 +36,7 @@ export default class Window {
    * @param objWindow
    * @return {number}
    */
-  public static getWidth(objWindow: IWindow = window): number {
+  public static getWidth(objWindow: any = window): number {
     if (Window.isWindow(objWindow)) {
       return objWindow.innerWidth || objWindow.document.documentElement.clientWidth || objWindow.document.body.clientWidth;
     } else {
@@ -56,7 +48,7 @@ export default class Window {
    * Get window sizes
    * @return {{height: number, width: number}}
    */
-  public static getSizes(objWindow: IWindow = window): {
+  public static getSizes(objWindow: any = window): {
     height: number,
     width: number,
   } {

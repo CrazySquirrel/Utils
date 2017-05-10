@@ -2,7 +2,7 @@
 /**
  * Import interfaces
  */
-import IWindow from "../interfaces/IWindow.ts";
+import IWindow from "../interfaces/IWindow";
 /**
  * Declare window interface
  */
@@ -11,20 +11,20 @@ declare var module: any;
 /**
  * Import Main Utils class
  */
-import UtilsMain from "./UtilsMain.ts";
+import UtilsMain from "./UtilsMain";
 /**
  * Import subclasses
  */
-import UtilsAnimation from "./UtilsAnimation.ts";
-import UtilsBrowser from "./UtilsBrowser.ts";
-import UtilsCookie from "./UtilsCookie.ts";
-import UtilsDocument from "./UtilsDocument.ts";
-import UtilsDOM from "./UtilsDOM.ts";
-import UtilsMouse from "./UtilsMouse.ts";
-import UtilsScreen from "./UtilsScreen.ts";
-import UtilsSystem from "./UtilsSystem.ts";
-import UtilsUser from "./UtilsUser.ts";
-import UtilsWindow from "./UtilsWindow.ts";
+import UtilsAnimation from "./UtilsAnimation";
+import UtilsBrowser from "./UtilsBrowser";
+import UtilsCookie from "./UtilsCookie";
+import UtilsDocument from "./UtilsDocument";
+import UtilsDOM from "./UtilsDOM";
+import UtilsMouse from "./UtilsMouse";
+import UtilsScreen from "./UtilsScreen";
+import UtilsSystem from "./UtilsSystem";
+import UtilsUser from "./UtilsUser";
+import UtilsWindow from "./UtilsWindow";
 /**
  * Global Utils class
  */

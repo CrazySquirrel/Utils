@@ -1,12 +1,8 @@
 "use strict";
 /**
- * Import interfaces
- */
-import IWindow from "../Interfaces/IWindow.ts";
-/**
  * Declare window interface
  */
-declare let window: IWindow;
+declare let window: any;
 /**
  * Class for working with screen
  */

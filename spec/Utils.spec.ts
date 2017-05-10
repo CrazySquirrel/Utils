@@ -7,7 +7,7 @@ declare let it: any;
 declare let expect: any;
 declare let require: any;
 
-import Utils from "../lib/Utils.ts";
+import Utils from "../lib/Utils";
 
 describe("Utils", () => {
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;

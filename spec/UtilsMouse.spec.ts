@@ -7,7 +7,7 @@ declare let it: any;
 declare let expect: any;
 declare let require: any;
 
-import UtilsMouse from "../lib/UtilsMouse.ts";
+import UtilsMouse from "../lib/UtilsMouse";
 
 describe("UtilsMouse", () => {
   it("UtilsMouse", () => {

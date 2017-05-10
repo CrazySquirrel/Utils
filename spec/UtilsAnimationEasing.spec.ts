@@ -7,9 +7,9 @@ declare let it: any;
 declare let expect: any;
 declare let require: any;
 
-import Utils from "../lib/Utils.ts";
-import UtilsAnimation from "../lib/UtilsAnimation.ts";
-import UtilsAnimationEasing from "../lib/UtilsAnimationEasing.ts";
+import Utils from "../lib/Utils";
+import UtilsAnimation from "../lib/UtilsAnimation";
+import UtilsAnimationEasing from "../lib/UtilsAnimationEasing";
 
 describe("UtilsAnimationEasing", () => {
   let now;

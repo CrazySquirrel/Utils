@@ -1,7 +1,7 @@
 /**
  * Import interfaces
  */
-import IWindow from "../Interfaces/IWindow.ts";
+import IWindow from "../Interfaces/IWindow";
 /**
  * Class for working with window
  */

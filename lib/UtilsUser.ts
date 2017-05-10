@@ -2,9 +2,9 @@
 /**
  * Class for working with user
  */
-import UtilsBrowser from "./UtilsBrowser.ts";
-import UtilsScreen from "./UtilsScreen.ts";
-import UtilsSystem from "./UtilsSystem.ts";
+import UtilsBrowser from "./UtilsBrowser";
+import UtilsScreen from "./UtilsScreen";
+import UtilsSystem from "./UtilsSystem";
 /**
  * Class for working with user data
  */

@@ -2,7 +2,7 @@
 /**
  * Import additional classes
  */
-import UtilsMain from "./UtilsMain.ts";
+import UtilsMain from "./UtilsMain";
 /**
  * Class for working with DOM
  */

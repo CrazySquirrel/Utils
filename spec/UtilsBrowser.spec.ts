@@ -7,8 +7,8 @@ declare let it: any;
 declare let expect: any;
 declare let require: any;
 
-import Utils from "../lib/Utils.ts";
-import UtilsBrowser from "../lib/UtilsBrowser.ts";
+import Utils from "../lib/Utils";
+import UtilsBrowser from "../lib/UtilsBrowser";
 
 describe("UtilsBrowser", () => {
 

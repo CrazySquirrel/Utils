@@ -7,8 +7,8 @@ declare let it: any;
 declare let expect: any;
 declare let require: any;
 
-import Utils from "../lib/Utils.ts";
-import UtilsDocument from "../lib/UtilsDocument.ts";
+import Utils from "../lib/Utils";
+import UtilsDocument from "../lib/UtilsDocument";
 
 describe("UtilsDocument", () => {
 

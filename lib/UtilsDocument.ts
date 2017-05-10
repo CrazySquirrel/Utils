@@ -1,16 +1,8 @@
 "use strict";
 /**
- * Import interfaces
- */
-import IWindow from "../Interfaces/IWindow.ts";
-/**
- * Declare window interface
- */
-declare let window: IWindow;
-/**
  * Import additional classes
  */
-import UtilsWindow from "./UtilsWindow.ts";
+import UtilsWindow from "./UtilsWindow";
 /**
  * Class for working with document
  */
@@ -19,7 +11,7 @@ export default class Document {
    * Get document height
    * @returns {number}
    */
-  public static getHeight(objWindow: IWindow = window): number {
+  public static getHeight(objWindow: any = window): number {
     if (UtilsWindow.isWindow(objWindow)) {
       return Math.max(
           objWindow.document.body.scrollHeight,
@@ -38,7 +30,7 @@ export default class Document {
    * Get document width
    * @returns {number}
    */
-  public static getWidth(objWindow: IWindow = window): number {
+  public static getWidth(objWindow: any = window): number {
     if (UtilsWindow.isWindow(objWindow)) {
       return Math.max(
           objWindow.document.body.scrollWidth,
@@ -58,7 +50,7 @@ export default class Document {
    * @param objWindow
    * @return {number}
    */
-  public static getScrollTop(objWindow: IWindow = window): number {
+  public static getScrollTop(objWindow: any = window): number {
     if (UtilsWindow.isWindow(objWindow)) {
       return (
           objWindow.pageYOffset ||
@@ -81,7 +73,7 @@ export default class Document {
    * @param objWindow
    * @return {number}
    */
-  public static getScrollLeft(objWindow: IWindow = window): number {
+  public static getScrollLeft(objWindow: any = window): number {
     if (UtilsWindow.isWindow(objWindow)) {
       return (
           objWindow.pageXOffset ||
@@ -104,7 +96,7 @@ export default class Document {
    * @param objWindow
    * @return {{left: number, top: number}}
    */
-  public static getScroll(objWindow: IWindow = window): {left: number, top: number} {
+  public static getScroll(objWindow: any = window): {left: number, top: number} {
     if (UtilsWindow.isWindow(objWindow)) {
       return ({
         left: Document.getScrollLeft(objWindow),

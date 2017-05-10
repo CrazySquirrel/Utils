@@ -7,8 +7,8 @@ declare let it: any;
 declare let expect: any;
 declare let require: any;
 
-import Utils from "../lib/Utils.ts";
-import UtilsSystem from "../lib/UtilsSystem.ts";
+import Utils from "../lib/Utils";
+import UtilsSystem from "../lib/UtilsSystem";
 
 describe("UtilsSystem", () => {
   it("UtilsSystem", () => {

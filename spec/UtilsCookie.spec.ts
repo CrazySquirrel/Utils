@@ -9,8 +9,8 @@ declare let require: any;
 
 const URL = require("url");
 
-import Utils from "../lib/Utils.ts";
-import UtilsCookie from "../lib/UtilsCookie.ts";
+import Utils from "../lib/Utils";
+import UtilsCookie from "../lib/UtilsCookie";
 
 describe("UtilsCookie", () => {
 
