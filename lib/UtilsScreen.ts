@@ -2,7 +2,7 @@
 /**
  * Declare window interface
  */
-declare let window: any;
+declare const window: any;
 /**
  * Class for working with screen
  */

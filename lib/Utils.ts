@@ -6,8 +6,8 @@ import IWindow from "../interfaces/IWindow";
 /**
  * Declare window interface
  */
-declare var window: IWindow;
-declare var module: any;
+declare const window: IWindow;
+declare const module: any;
 /**
  * Import Main Utils class
  */

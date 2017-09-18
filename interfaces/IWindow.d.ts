@@ -2,6 +2,9 @@
  * The storage interface
  */
 interface IWindow {
+    addEventListener?: any;
+    attachEvent?: any;
+    getComputedStyle?: any;
     document?: any;
     Utils?: any;
     eventListenerAdded?: boolean;

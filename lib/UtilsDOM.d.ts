@@ -1,7 +1,16 @@
 /**
+ * Import subclasses
+ */
+import UtilsDOMVisibility from "./UtilsDOMVisibility";
+/**
  * Class for working with DOM
  */
 export default class DOM {
+    /**
+     * Visibility
+     * @type {Visibility}
+     */
+    static Visibility: typeof UtilsDOMVisibility;
     /**
      * Check if variable is dom document
      * @param domDocument

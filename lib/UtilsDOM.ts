@@ -3,10 +3,22 @@
  * Import additional classes
  */
 import UtilsMain from "./UtilsMain";
+
+/**
+ * Import subclasses
+ */
+import UtilsDOMVisibility from "./UtilsDOMVisibility";
+
 /**
  * Class for working with DOM
  */
 export default class DOM {
+
+  /**
+   * Visibility
+   * @type {Visibility}
+   */
+  public static Visibility = UtilsDOMVisibility;
 
   /**
    * Check if variable is dom document

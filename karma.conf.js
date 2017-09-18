@@ -15,6 +15,7 @@ module.exports = function (config) {
       "./spec/UtilsCookie.spec.ts",
       "./spec/UtilsDocument.spec.ts",
       "./spec/UtilsDOM.spec.ts",
+      "./spec/UtilsDOMVisibility.spec.ts",
       "./spec/UtilsMouse.spec.ts",
       "./spec/UtilsScreen.spec.ts",
       "./spec/UtilsSystem.spec.ts",

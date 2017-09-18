@@ -1,8 +1,13 @@
 "use strict";
+
 /**
  * The storage interface
  */
- interface IWindow {
+interface IWindow {
+  addEventListener?: any;
+  attachEvent?: any;
+  getComputedStyle?: any;
+
   document?: any;
   Utils?: any;
 
@@ -21,6 +26,7 @@
 
   Promise?: Promise<any>;
 }
+
 /**
  * Export the window interface
  */

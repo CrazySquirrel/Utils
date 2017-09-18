@@ -6,7 +6,7 @@ import IError from "../interfaces/IError";
 /**
  * Declare window interface
  */
-declare var Error: IError;
+declare const Error: IError;
 /**
  * Main Utils class
  */

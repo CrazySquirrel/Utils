@@ -1,4 +1,5 @@
 "use strict";
+
 /**
  * The IError interface
  */
@@ -15,12 +16,14 @@ interface IError {
    * Error stack call trace
    */
   stack: string;
+
   /**
    * Error constructor
    * @param message
    */
   new(message?: string): IError;
 }
+
 /**
  * Export the IError interface
  */
