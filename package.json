@@ -1,6 +1,6 @@
 {
   "name": "Utils",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "description": "Utils for working with DOM, Window, Screen and etc.",
   "keywords": [
     "TypeScript",
